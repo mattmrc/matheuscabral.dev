@@ -1,0 +1,50 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# PyCharm project settings
+.idea/
+
+# macOS metadata
+.DS_Store
+
+# Node and package managers (if you expand project later)
+node_modules/
+dist/
+build/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# System generated files
+Thumbs.db
+ehthumbs.db
+
+# Netlify cache and output folders (if added later)
+.netlify/
+.publish/
+
+# Personal files
+*.env
+.env.*
+credentials.*
+
+# Compiled files
+*.out
+*.o
+*.a
+*.class
+
+# Backup files
+*~
+
+# Git-specific files
+*.swp
+*.swo
