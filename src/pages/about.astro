@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import { site, values, skills, timeline } from '../data/site';
+---
+
+<BaseLayout title={`About - ${site.name}`}>
+  <Section
+    eyebrow="About"
+    title="Data engineering for reliable reporting"
+    subtitle="I build ETL pipelines and KPI dashboards on Databricks and Power BI for finance and management teams."
+    headingLevel={1}
+  >
+    <div class="grid grid--2">
+      <div class="surface">
+        <p class="kicker">Bio</p>
+        <h3 style="font-size: var(--step-2);">Hi, I&apos;m {site.name}.</h3>
+        <p>
+          I&apos;m a data engineer with hands-on experience building end-to-end ETL pipelines in Python,
+          PySpark, and SQL. Most of my work happens in Databricks, where I design reliable data models
+          that feed Power BI dashboards for financial KPIs and management reporting.
+        </p>
+        <p>
+          I own the workflow from stakeholder requirements through deployment and monitoring, making
+          sure the data stays accurate, reusable, and easy to change as reporting needs evolve.
+        </p>
+      </div>
+      <div class="surface">
+        <p class="kicker">Values</p>
+        <div class="listing">
+          {values.map((value) => (
+            <div>
+              <h4>{value.title}</h4>
+              <p>{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Capabilities"
+    title="Skills and toolset"
+    subtitle="Focused on Databricks, BI reporting, and reliable ETL delivery."
+  >
+    <div class="grid grid--4">
+      <Card>
+        <h3>Languages</h3>
+        <div class="tag-list">
+          {skills.languages.map((item) => (
+            <span class="badge">{item}</span>
+          ))}
+        </div>
+      </Card>
+      <Card>
+        <h3>Platforms</h3>
+        <div class="tag-list">
+          {skills.platforms.map((item) => (
+            <span class="badge">{item}</span>
+          ))}
+        </div>
+      </Card>
+      <Card>
+        <h3>Tools</h3>
+        <div class="tag-list">
+          {skills.tools.map((item) => (
+            <span class="badge">{item}</span>
+          ))}
+        </div>
+      </Card>
+      <Card>
+        <h3>Practices</h3>
+        <div class="tag-list">
+          {skills.practices.map((item) => (
+            <span class="badge">{item}</span>
+          ))}
+        </div>
+      </Card>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Timeline"
+    title="Experience"
+    subtitle="A quick view of the roles that shaped my approach to data engineering."
+  >
+    <div class="timeline">
+      {timeline.map((item) => (
+        <div class="timeline-item">
+          <p class="kicker">{item.period}</p>
+          <h3>{item.role}</h3>
+          <p class="kicker">{item.company}</p>
+          <p>{item.summary}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+</BaseLayout>

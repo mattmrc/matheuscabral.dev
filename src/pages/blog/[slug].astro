@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Badge from '../../components/Badge.astro';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../utils/format';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { data } = post;
+---
+
+<BaseLayout title={`${data.title} - ${site.name}`} description={data.summary}>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">{formatDate(data.date)}</p>
+      <h1 class="headline">{data.title}</h1>
+      <p class="subhead">{data.summary}</p>
+      <div class="tag-list" style="margin-top: var(--space-4);">
+        {data.tags.map((tag) => (
+          <Badge label={tag} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="surface">
+        <Content />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

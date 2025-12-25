@@ -1,0 +1,45 @@
+---
+import { navLinks, site } from '../data/site';
+const { currentPath = '/' } = Astro.props;
+const isActive = (href) =>
+  currentPath === href || (href !== '/' && currentPath.startsWith(`${href}/`));
+---
+
+<nav class="nav" aria-label="Primary">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="/">{site.name}</a>
+    <button
+      class="nav__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      data-nav-toggle
+    >
+      Menu
+    </button>
+    <div class="nav__menu" id="nav-menu" data-nav-menu data-open="false" aria-hidden="true">
+      {navLinks.map((link) => (
+        <a
+          class="nav__link"
+          href={link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+          data-active={isActive(link.href) ? 'true' : 'false'}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <div class="nav__actions">
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Toggle theme"
+      >
+        <span aria-hidden="true">O</span>
+        <span data-theme-label>Theme</span>
+      </button>
+      <a class="btn btn--outline" href="/contact">Let&apos;s talk</a>
+    </div>
+  </div>
+</nav>

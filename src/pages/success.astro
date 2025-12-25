@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={`Message sent - ${site.name}`}>
+  <Section
+    eyebrow="Contact"
+    title="Thanks for reaching out"
+    subtitle="Your message is on its way. I&apos;ll get back to you within 1-2 business days."
+    headingLevel={1}
+  >
+    <div class="surface" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
+      <div style="flex: 1 1 260px;">
+        <p class="kicker">What happens next</p>
+        <p>
+          I&apos;ll review your brief and respond with a few options for next steps, timing, and scope.
+        </p>
+      </div>
+      <div style="display: flex; gap: var(--space-3);">
+        <Button href="/portfolio">View portfolio</Button>
+        <Button href="/" variant="outline">Back to home</Button>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
