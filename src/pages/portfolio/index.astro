@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../data/site';
+
+const projects = await getCollection('projects');
+const tagMap = new Map();
+projects.forEach((project) => {
+  project.data.tags.forEach((tag) => {
+    tagMap.set(tag.toLowerCase(), tag);
+  });
+});
+const tags = Array.from(tagMap.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+---
+
+<BaseLayout title={`Portfolio - ${site.name}`}>
+  <Section
+    eyebrow="Portfolio"
+    title="Projects that move data from raw to reliable"
+    subtitle="Each project focuses on reliability, governance, and measurable business impact."
+    headingLevel={1}
+  >
+    <div class="filters" role="group" aria-label="Filter projects by tag">
+      <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">
+        All projects
+      </button>
+      {tags.map(([key, label]) => (
+        <button class="filter-btn" type="button" data-filter={key} aria-pressed="false">
+          {label}
+        </button>
+      ))}
+    </div>
+    <div class="grid grid--3" data-project-grid data-card-grid>
+      {projects.map((project) => (
+        <div
+          data-project-card
+          data-tags={project.data.tags.map((tag) => tag.toLowerCase()).join(',')}
+        >
+          <ProjectCard project={project} />
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <script is:inline>
+    (() => {
+      const buttons = document.querySelectorAll('[data-filter]');
+      const cards = document.querySelectorAll('[data-project-card]');
+
+      const setActive = (active) => {
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', button.dataset.filter === active ? 'true' : 'false');
+        });
+      };
+
+      const setVisibility = (card, visible) => {
+        card.toggleAttribute('hidden', !visible);
+        card.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        card.style.display = visible ? '' : 'none';
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter || 'all';
+          setActive(filter);
+          cards.forEach((card) => {
+            const tags = card.dataset.tags || '';
+            const match = filter === 'all' || tags.split(',').includes(filter);
+            setVisibility(card, match);
+          });
+          if (window.__equalizeCardGrids) {
+            window.__equalizeCardGrids();
+          }
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

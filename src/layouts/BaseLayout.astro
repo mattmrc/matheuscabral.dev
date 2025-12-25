@@ -1,0 +1,178 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+const {
+  title = site.title,
+  description = site.description,
+  image = '/og-default.png',
+  noFooter = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL(image, site.url).href;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="theme-color" content="#0b1110" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f1ea" media="(prefers-color-scheme: light)" />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const storageKey = 'theme';
+        const root = document.documentElement;
+        let stored = null;
+        try {
+          stored = localStorage.getItem(storageKey);
+        } catch (error) {
+          stored = null;
+        }
+        const supportsMatchMedia = typeof window.matchMedia === 'function';
+        const prefersDark = supportsMatchMedia
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : true;
+        const resolved = stored || (prefersDark ? 'dark' : 'light') || 'dark';
+        root.dataset.theme = resolved;
+        root.style.colorScheme = resolved;
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Navbar currentPath={Astro.url.pathname} />
+    <main id="main">
+      <slot />
+    </main>
+    {!noFooter && <Footer />}
+    <script is:inline>
+      (() => {
+        const menu = document.querySelector('[data-nav-menu]');
+        const toggle = document.querySelector('[data-nav-toggle]');
+        const themeToggle = document.querySelector('[data-theme-toggle]');
+        const themeLabel = document.querySelector('[data-theme-label]');
+        const storageKey = 'theme';
+        const navLinks = menu ? Array.from(menu.querySelectorAll('a')) : [];
+
+        const setMenuState = (isOpen) => {
+          if (!menu || !toggle) return;
+          menu.dataset.open = isOpen ? 'true' : 'false';
+          menu.setAttribute('aria-hidden', String(!isOpen));
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          navLinks.forEach((link) => {
+            if (isOpen) {
+              link.removeAttribute('tabindex');
+            } else {
+              link.setAttribute('tabindex', '-1');
+            }
+          });
+        };
+
+        const closeMenu = () => {
+          setMenuState(false);
+        };
+
+        if (toggle && menu) {
+          setMenuState(false);
+          toggle.addEventListener('click', () => {
+            const isOpen = menu.dataset.open === 'true';
+            setMenuState(!isOpen);
+          });
+
+          menu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', closeMenu);
+          });
+
+          window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeMenu();
+          });
+        }
+
+        const setTheme = (value) => {
+          document.documentElement.dataset.theme = value;
+          document.documentElement.style.colorScheme = value;
+          try {
+            localStorage.setItem(storageKey, value);
+          } catch (error) {
+            // Ignore storage failures in restricted contexts.
+          }
+          if (themeLabel) {
+            themeLabel.textContent = value === 'dark' ? 'Dark' : 'Light';
+          }
+        };
+
+        if (themeToggle) {
+          const currentTheme = document.documentElement.dataset.theme || 'dark';
+          if (themeLabel) {
+            themeLabel.textContent = currentTheme === 'dark' ? 'Dark' : 'Light';
+          }
+          themeToggle.addEventListener('click', () => {
+            const next =
+              (document.documentElement.dataset.theme || 'dark') === 'dark' ? 'light' : 'dark';
+            setTheme(next);
+          });
+        }
+
+        const cardRowKeys = ['meta', 'title', 'summary', 'tags', 'stack', 'action'];
+        const cardGrids = Array.from(document.querySelectorAll('[data-card-grid]'));
+
+        const equalizeGrid = (grid) => {
+          const cards = Array.from(grid.querySelectorAll('[data-card]')).filter(
+            (card) => card.offsetParent !== null,
+          );
+          if (!cards.length) return;
+          cardRowKeys.forEach((key) => {
+            let maxHeight = 0;
+            cards.forEach((card) => {
+              const row = card.querySelector(`[data-card-row="${key}"]`);
+              if (!row) return;
+              row.style.minHeight = '0px';
+              const height = row.offsetHeight;
+              if (height > maxHeight) maxHeight = height;
+            });
+            cards.forEach((card) => {
+              const row = card.querySelector(`[data-card-row="${key}"]`);
+              if (!row) return;
+              row.style.minHeight = maxHeight ? `${maxHeight}px` : '0px';
+            });
+          });
+        };
+
+        const equalizeAll = () => {
+          cardGrids.forEach((grid) => {
+            equalizeGrid(grid);
+          });
+        };
+
+        const scheduleEqualize = () => {
+          window.requestAnimationFrame(equalizeAll);
+        };
+
+        if (cardGrids.length) {
+          scheduleEqualize();
+          let resizeTimer;
+          window.addEventListener('resize', () => {
+            window.clearTimeout(resizeTimer);
+            resizeTimer = window.setTimeout(scheduleEqualize, 120);
+          });
+          window.addEventListener('orientationchange', scheduleEqualize);
+          window.__equalizeCardGrids = scheduleEqualize;
+        }
+      })();
+    </script>
+  </body>
+</html>

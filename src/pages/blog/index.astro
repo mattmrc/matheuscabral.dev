@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../data/site';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title={`Blog - ${site.name}`}>
+  <Section
+    eyebrow="Blog"
+    title="Writing on data engineering"
+    subtitle="Frameworks, playbooks, and lessons from building resilient data systems."
+    headingLevel={1}
+  >
+    <div class="grid grid--3" data-card-grid>
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  </Section>
+</BaseLayout>
