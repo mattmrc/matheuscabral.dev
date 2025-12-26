@@ -21,7 +21,7 @@ The goal is simple: **your dashboards should be boring** — predictable refresh
 Reliability is easiest to operationalize as a small set of measurable promises:
 
 - **Freshness / latency:** how quickly data becomes available after it is produced.
-- **Completeness:** whether you have *all* the expected records for a time window or partition.
+- **Completeness:** whether you have _all_ the expected records for a time window or partition.
 - **Correctness:** whether data follows schema rules and business constraints.
 - **Stability:** whether code changes can ship without causing regressions.
 
@@ -37,7 +37,7 @@ Even if you don’t fully implement “medallion architecture,” the concept is
 - **Silver (clean):** standardized schema, deduplication, conformance, basic quality gates.
 - **Gold (serve):** KPI-ready aggregates/dimensions aligned with stakeholder definitions.
 
-When things break, this layering tells you *where* to look first (source vs. transform vs. metric logic).
+When things break, this layering tells you _where_ to look first (source vs. transform vs. metric logic).
 
 ### 2) Make transforms composable
 
@@ -85,6 +85,7 @@ Focus on constraints stakeholders actually care about:
 - event ordering constraints when applicable.
 
 When a rule fails, your job should do one of:
+
 - **fail fast** (hard gate), or
 - **quarantine** bad records + continue with a clear warning, depending on risk.
 

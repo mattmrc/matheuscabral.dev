@@ -107,6 +107,7 @@ Last-minute surprises often happen in the deck export, not in Desktop:
 - Ensure legends, titles, and axis labels don’t truncate on smaller screens.
 
 For exec-ready reports, keep a consistent “visual language”:
+
 - Same chart types for the same ideas (trend = line, composition = stacked bar, ranking = bar).
 - Same colors for the same entities across pages.
 - Clear “as of” date displayed somewhere prominent.
@@ -134,4 +135,3 @@ Automate more of the QA checks inside the ETL pipeline so issues are caught earl
 - **Release discipline:** versioned semantic model changes, a changelog for measures, and a defined rollback plan.
 
 The end goal is simple: humans should review meaning and communication, while automation catches drift and regressions.
-
