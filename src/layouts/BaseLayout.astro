@@ -68,7 +68,7 @@ const ogImage = new URL(image, site.url).href;
         const menu = document.querySelector('[data-nav-menu]');
         const toggle = document.querySelector('[data-nav-toggle]');
         const themeToggle = document.querySelector('[data-theme-toggle]');
-        const themeLabel = document.querySelector('[data-theme-label]');
+        const themeIcon = document.querySelector('[data-theme-icon]');
         const storageKey = 'theme';
         const navLinks = menu ? Array.from(menu.querySelectorAll('a')) : [];
         const mobileMenuQuery = window.matchMedia('(max-width: 900px)');
@@ -133,16 +133,26 @@ const ogImage = new URL(image, site.url).href;
           } catch (error) {
             // Ignore storage failures in restricted contexts.
           }
-          if (themeLabel) {
-            themeLabel.textContent = value === 'dark' ? 'Dark' : 'Light';
+          if (themeIcon) {
+            themeIcon.textContent = value === 'dark' ? '🌙' : '☀️';
+          }
+          if (themeToggle) {
+            themeToggle.setAttribute(
+              'aria-label',
+              value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+            );
           }
         };
 
         if (themeToggle) {
           const currentTheme = document.documentElement.dataset.theme || 'dark';
-          if (themeLabel) {
-            themeLabel.textContent = currentTheme === 'dark' ? 'Dark' : 'Light';
+          if (themeIcon) {
+            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
           }
+          themeToggle.setAttribute(
+            'aria-label',
+            currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+          );
           themeToggle.addEventListener('click', () => {
             const next =
               (document.documentElement.dataset.theme || 'dark') === 'dark' ? 'light' : 'dark';
