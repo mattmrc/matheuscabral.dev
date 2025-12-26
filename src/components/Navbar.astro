@@ -1,7 +1,7 @@
 ---
 import { navLinks, site } from '../data/site';
 const { currentPath = '/' } = Astro.props;
-const isActive = (href) =>
+const isActive = (href: string) =>
   currentPath === href || (href !== '/' && currentPath.startsWith(`${href}/`));
 ---
 
@@ -18,24 +18,21 @@ const isActive = (href) =>
       Menu
     </button>
     <div class="nav__menu" id="nav-menu" data-nav-menu data-open="false" aria-hidden="true">
-      {navLinks.map((link) => (
-        <a
-          class="nav__link"
-          href={link.href}
-          aria-current={isActive(link.href) ? 'page' : undefined}
-          data-active={isActive(link.href) ? 'true' : 'false'}
-        >
-          {link.label}
-        </a>
-      ))}
+      {
+        navLinks.map((link) => (
+          <a
+            class="nav__link"
+            href={link.href}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+            data-active={isActive(link.href) ? 'true' : 'false'}
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </div>
     <div class="nav__actions">
-      <button
-        class="theme-toggle"
-        type="button"
-        data-theme-toggle
-        aria-label="Toggle theme"
-      >
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">
         <span aria-hidden="true">O</span>
         <span data-theme-label>Theme</span>
       </button>

@@ -9,29 +9,30 @@ import Icon from '../components/Icon.astro';
 <BaseLayout title={`Contact - ${site.name}`}>
   <Section
     eyebrow="Contact"
-    title="Let&apos;s build data products that last"
-    subtitle="Share a quick brief and I&apos;ll respond with next steps."
+    title="Let's build data products that last"
+    subtitle="Share a quick brief and I'll respond with next steps."
     headingLevel={1}
   >
     <div class="grid grid--2">
-      <div class="surface">
-        <h3>Start a conversation</h3>
-        <p>
-          This form is wired for Netlify Forms on deployment. For immediate replies, email or
-          LinkedIn is best.
-        </p>
+      <div class="surface reveal reveal-delay-2">
+        <h2 class="heading-sm">Start a conversation</h2>
+        <p>For immediate replies, email or LinkedIn is best.</p>
         <div class="socials" style="margin-top: var(--space-4);">
-          {socials.map((social) => (
-            <a href={social.href} target="_blank" rel="noreferrer">
-              <Icon name={social.icon} size={18} />
-              {social.label}
-            </a>
-          ))}
+          {
+            socials.map((social) => (
+              <a href={social.href} target="_blank" rel="noreferrer">
+                <Icon name={social.icon} size={18} />
+                {social.label}
+              </a>
+            ))
+          }
         </div>
-        <p style="margin-top: var(--space-4);">{site.email}</p>
+        <p style="margin-top: var(--space-4);">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
       </div>
       <form
-        class="surface form"
+        class="surface form reveal reveal-delay-2"
         name="contact"
         method="POST"
         action="/success"
@@ -53,14 +54,19 @@ import Icon from '../components/Icon.astro';
         </div>
         <div>
           <label class="kicker" for="company">Company</label>
-          <input class="input" id="company" name="company" type="text" autocomplete="organization" />
+          <input
+            class="input"
+            id="company"
+            name="company"
+            type="text"
+            autocomplete="organization"
+          />
         </div>
         <div>
           <label class="kicker" for="message">Project brief</label>
           <textarea class="input" id="message" name="message" rows="5" required></textarea>
         </div>
         <Button type="submit">Send message</Button>
-        <p class="kicker">Netlify Forms handles submissions on the live site.</p>
       </form>
     </div>
   </Section>

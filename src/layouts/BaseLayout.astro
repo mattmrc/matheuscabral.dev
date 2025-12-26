@@ -29,6 +29,10 @@ const ogImage = new URL(image, site.url).href;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="theme-color" content="#0b1110" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f5f1ea" media="(prefers-color-scheme: light)" />
     <title>{title}</title>
@@ -67,11 +71,28 @@ const ogImage = new URL(image, site.url).href;
         const themeLabel = document.querySelector('[data-theme-label]');
         const storageKey = 'theme';
         const navLinks = menu ? Array.from(menu.querySelectorAll('a')) : [];
+        const mobileMenuQuery = window.matchMedia('(max-width: 900px)');
 
         const setMenuState = (isOpen) => {
           if (!menu || !toggle) return;
+          if (!mobileMenuQuery.matches) {
+            menu.dataset.open = 'true';
+            menu.setAttribute('aria-hidden', 'false');
+            menu.removeAttribute('inert');
+            toggle.setAttribute('aria-expanded', 'false');
+            navLinks.forEach((link) => link.removeAttribute('tabindex'));
+            return;
+          }
+          if (!isOpen && menu.contains(document.activeElement)) {
+            toggle.focus({ preventScroll: true });
+          }
           menu.dataset.open = isOpen ? 'true' : 'false';
           menu.setAttribute('aria-hidden', String(!isOpen));
+          if (isOpen) {
+            menu.removeAttribute('inert');
+          } else {
+            menu.setAttribute('inert', '');
+          }
           toggle.setAttribute('aria-expanded', String(isOpen));
           navLinks.forEach((link) => {
             if (isOpen) {
@@ -88,7 +109,9 @@ const ogImage = new URL(image, site.url).href;
 
         if (toggle && menu) {
           setMenuState(false);
+          mobileMenuQuery.addEventListener('change', () => setMenuState(false));
           toggle.addEventListener('click', () => {
+            if (!mobileMenuQuery.matches) return;
             const isOpen = menu.dataset.open === 'true';
             setMenuState(!isOpen);
           });

@@ -22,25 +22,29 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => a[0].localeCompare(b[0]
     subtitle="Each project focuses on reliability, governance, and measurable business impact."
     headingLevel={1}
   >
-    <div class="filters" role="group" aria-label="Filter projects by tag">
+    <div class="filters reveal reveal-delay-1" role="group" aria-label="Filter projects by tag">
       <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">
         All projects
       </button>
-      {tags.map(([key, label]) => (
-        <button class="filter-btn" type="button" data-filter={key} aria-pressed="false">
-          {label}
-        </button>
-      ))}
+      {
+        tags.map(([key, label]) => (
+          <button class="filter-btn" type="button" data-filter={key} aria-pressed="false">
+            {label}
+          </button>
+        ))
+      }
     </div>
     <div class="grid grid--3" data-project-grid data-card-grid>
-      {projects.map((project) => (
-        <div
-          data-project-card
-          data-tags={project.data.tags.map((tag) => tag.toLowerCase()).join(',')}
-        >
-          <ProjectCard project={project} />
-        </div>
-      ))}
+      {
+        projects.map((project) => (
+          <div
+            data-project-card
+            data-tags={project.data.tags.map((tag) => tag.toLowerCase()).join(',')}
+          >
+            <ProjectCard project={project} revealDelay="reveal-delay-2" />
+          </div>
+        ))
+      }
     </div>
   </Section>
 

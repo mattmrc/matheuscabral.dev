@@ -8,8 +8,9 @@ test.describe('page rendering', () => {
   for (const route of [...routes, ...detailRoutes]) {
     test(`renders ${route}`, async ({ page }) => {
       await page.goto(route);
-      await expect(page.getByRole('main')).toBeVisible();
-      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+      const main = page.getByRole('main');
+      await expect(main).toBeVisible();
+      await expect(main.getByRole('heading', { level: 1 })).toBeVisible();
     });
   }
 });
@@ -18,7 +19,7 @@ test('mobile navigation toggles with keyboard', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 720 });
   await page.goto('/');
 
-  const toggle = page.getByRole('button', { name: 'Menu' });
+  const toggle = page.getByLabel('Primary').getByRole('button', { name: 'Menu' });
   const menuLinks = page.locator('[data-nav-menu] a');
   await expect(page.locator('[data-nav-menu]')).toHaveAttribute('aria-hidden', 'true');
   await expect(menuLinks.first()).toHaveAttribute('tabindex', '-1');
@@ -49,10 +50,10 @@ test('theme toggle respects system setting and persists', async ({ page }) => {
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
 });
 
-test('accessibility snapshot renders', async ({ page }) => {
+test('core landmarks are present', async ({ page }) => {
   await page.goto('/');
-  const snapshot = await page.accessibility.snapshot();
-  expect(snapshot).toBeTruthy();
+  await expect(page.getByRole('navigation', { name: 'Primary' })).toBeVisible();
+  await expect(page.getByRole('contentinfo')).toBeVisible();
 });
 
 test('responsive layout has no horizontal overflow', async ({ page }) => {
