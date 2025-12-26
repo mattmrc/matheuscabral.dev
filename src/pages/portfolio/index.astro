@@ -41,7 +41,7 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => a[0].localeCompare(b[0]
             data-project-card
             data-tags={project.data.tags.map((tag) => tag.toLowerCase()).join(',')}
           >
-          <ProjectCard project={project} revealDelay="reveal-delay-2" />
+            <ProjectCard project={project} revealDelay="reveal-delay-2" />
           </div>
         ))
       }
