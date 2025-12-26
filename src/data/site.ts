@@ -71,10 +71,10 @@ export const skills = {
 };
 
 export const spokenLanguages = [
-  { language: 'Portuguese', level: 'C2' },
-  { language: 'English', level: 'C2' },
-  { language: 'French', level: 'B1' },
-  { language: 'Spanish', level: 'B1' },
+  { language: 'Portuguese', level: 'C2', score: 100 },
+  { language: 'English', level: 'C2', score: 100 },
+  { language: 'French', level: 'B1', score: 60 },
+  { language: 'Spanish', level: 'B1', score: 60 },
 ];
 
 export const interests = [
@@ -90,6 +90,7 @@ export const timeline = [
   {
     role: 'Data Engineer',
     company: 'BNP Paribas',
+    location: site.location,
     period: '11/2023 - Present',
     summary:
       'Design and maintain ETL pipelines in Python, PySpark, and SQL, plus Power BI dashboards for finance and management.',
@@ -97,6 +98,7 @@ export const timeline = [
   {
     role: 'Data Analyst',
     company: 'Protegrity',
+    location: site.location,
     period: '08/2021 - 10/2023',
     summary:
       'Built Databricks ETL workflows and cross-team dashboards for revenue, pipeline, and product usage KPIs.',
@@ -104,6 +106,7 @@ export const timeline = [
   {
     role: 'Data Analyst',
     company: 'Megabeetle - Branding Agency',
+    location: site.location,
     period: '11/2020 - 08/2021',
     summary:
       'Produced performance reports and supported a SQL case management tool for insolvency workflows.',

@@ -2,7 +2,15 @@
 const { name, size = 20 } = Astro.props;
 ---
 
-<svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+<svg
+  class={`icon icon--${name}`}
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+>
   {
     name === 'github' && (
       <path

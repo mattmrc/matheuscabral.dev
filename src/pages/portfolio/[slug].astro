@@ -56,7 +56,7 @@ const { data } = project;
       {
         data.highlights?.length && (
           <div class="surface" style="margin-top: var(--space-5);">
-            <h2 style="font-size: var(--step-2); margin-bottom: var(--space-3);">Highlights</h2>
+            <h2 class="surface__title">Highlights</h2>
             <ul>
               {data.highlights.map((item) => (
                 <li>{item}</li>
@@ -70,7 +70,7 @@ const { data } = project;
 
   <section class="section" style="padding-top: 0;">
     <div class="container">
-      <div class="surface">
+      <div class="surface prose prose--full">
         <Content />
       </div>
     </div>

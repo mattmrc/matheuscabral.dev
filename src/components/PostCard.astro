@@ -2,9 +2,7 @@
 import { formatDate } from '../utils/format';
 const { post, class: className = '', revealDelay = '' } = Astro.props;
 const { data, slug } = post;
-const classes = ['card', 'reveal', 'card--post', className, revealDelay]
-  .filter(Boolean)
-  .join(' ');
+const classes = ['card', 'reveal', 'card--post', className, revealDelay].filter(Boolean).join(' ');
 ---
 
 <article class={classes} data-card>
