@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
-import { site, timeline, skills, spokenLanguages, interests } from '../data/site';
+import { site, timeline, spokenLanguages } from '../data/site';
 ---
 
 <BaseLayout title={`Resume - ${site.name}`}>
@@ -31,11 +31,12 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
   </Section>
 
   <Section eyebrow="Summary" title="ETL pipelines and KPI reporting">
-    <div class="surface">
+    <div class="surface prose prose--full">
       <p>
-        Data engineer with hands-on experience building ETL pipelines in Python, PySpark, and SQL on
-        Databricks. I deliver Power BI dashboards for finance and management teams and own the flow
-        from requirements to deployment and monitoring.
+        Data Engineer specialized in end-to-end data delivery: ingesting and transforming data with
+        Python, PySpark, SQL, and Databricks, then turning it into actionable KPI reporting in Power
+        BI. I work directly with stakeholders to clarify requirements, define metrics, and ship
+        maintainable pipelines with data quality checks, monitoring, and clear documentation.
       </p>
     </div>
   </Section>
@@ -47,7 +48,11 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
           <div class="timeline-item">
             <p class="kicker">{item.period}</p>
             <h3>{item.role}</h3>
-            <p class="kicker">{item.company}</p>
+            <p class="kicker">
+              {item.company}
+              {item.location && <span aria-hidden="true"> &middot; </span>}
+              {item.location}
+            </p>
             <p>{item.summary}</p>
           </div>
         ))
@@ -59,59 +64,241 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
     <div class="grid grid--2">
       <div class="surface">
         <h3>Core competencies</h3>
-        <ul style="margin-left: var(--space-4); color: var(--color-muted);">
-          <li>End-to-end ETL pipelines in Python, PySpark, and SQL</li>
-          <li>Databricks workflows, modular refactors, and reuse</li>
-          <li>Power BI dashboards for financial KPIs</li>
-          <li>Stakeholder requirements, metric validation, and monitoring</li>
+        <ul class="skills-list">
+          <li>
+            <strong>Ship reliable ETL/ELT pipelines</strong> in Python/PySpark/SQL (batch + incremental).
+          </li>
+          <li>
+            <strong>Model analytics-ready data</strong> with validated metrics and clear definitions.
+          </li>
+          <li>
+            <strong>Optimize Spark performance</strong> (partitioning, shuffles, and I/O) for scalable
+            runs.
+          </li>
+          <li>
+            <strong>Deliver KPI-ready datasets</strong> powering Power BI/Tableau reporting.
+          </li>
+          <li>
+            <strong>Raise quality &amp; maintainability</strong> via monitoring and modular Databricks
+            refactors.
+          </li>
         </ul>
       </div>
       <div class="surface">
         <h3>Technical toolkit</h3>
-        <div class="tag-list">
-          {
-            [...skills.languages, ...skills.platforms, ...skills.tools].map((item) => (
-              <span class="badge">{item}</span>
-            ))
-          }
+        <p class="lede">Primary stack + supporting tools I ship with.</p>
+        <div class="primary-stack">
+          <p class="kicker">Primary stack</p>
+          <ul class="chip-row">
+            <li><span class="chip chip--primary">Python</span></li>
+            <li><span class="chip chip--primary">PySpark</span></li>
+            <li><span class="chip chip--primary">SQL</span></li>
+            <li><span class="chip chip--primary">Databricks</span></li>
+            <li><span class="chip chip--primary">Power BI</span></li>
+          </ul>
+        </div>
+        <div class="skill-category-grid">
+          <div class="skill-category" tabindex="0" aria-label="Data processing">
+            <div class="skill-category__header">
+              <span class="skill-category__icon" aria-hidden="true">⚙️</span>
+              <span class="skill-category__title">Data processing</span>
+            </div>
+            <div class="chip-list">
+              <span class="chip">PySpark</span>
+              <span class="chip">Spark SQL</span>
+            </div>
+          </div>
+          <div class="skill-category" tabindex="0" aria-label="Pipelines">
+            <div class="skill-category__header">
+              <span class="skill-category__icon" aria-hidden="true">🔁</span>
+              <span class="skill-category__title">Pipelines</span>
+            </div>
+            <div class="chip-list">
+              <span class="chip">ETL</span>
+              <span class="chip">ELT</span>
+              <span class="chip">Data Pipelines</span>
+            </div>
+          </div>
+          <div class="skill-category" tabindex="0" aria-label="Modeling">
+            <div class="skill-category__header">
+              <span class="skill-category__icon" aria-hidden="true">🧱</span>
+              <span class="skill-category__title">Modeling</span>
+            </div>
+            <div class="chip-list">
+              <span class="chip">Dimensional Modeling</span>
+              <span class="chip">Star Schema</span>
+              <span class="chip">KPI Definitions</span>
+            </div>
+          </div>
+          <div class="skill-category" tabindex="0" aria-label="Analytics and reporting">
+            <div class="skill-category__header">
+              <span class="skill-category__icon" aria-hidden="true">📊</span>
+              <span class="skill-category__title">Analytics &amp; reporting</span>
+            </div>
+            <div class="chip-list">
+              <span class="chip">Power BI</span>
+              <span class="chip">Power BI Service</span>
+              <span class="chip">Tableau</span>
+              <span class="chip">Dashboards &amp; Reporting</span>
+            </div>
+          </div>
+          <div class="skill-category" tabindex="0" aria-label="Python libraries">
+            <div class="skill-category__header">
+              <span class="skill-category__icon" aria-hidden="true">🧪</span>
+              <span class="skill-category__title">Python libs</span>
+            </div>
+            <div class="chip-list">
+              <span class="chip">Pandas</span>
+              <span class="chip">NumPy</span>
+            </div>
+          </div>
+          <div class="skill-category" tabindex="0" aria-label="Collaboration">
+            <div class="skill-category__header">
+              <span class="skill-category__icon" aria-hidden="true">🔀</span>
+              <span class="skill-category__title">Collaboration</span>
+            </div>
+            <div class="chip-list">
+              <span class="chip">Git</span>
+              <span class="chip">GitHub</span>
+              <span class="chip">Bitbucket</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </Section>
 
   <Section eyebrow="Education" title="Background">
-    <div class="grid grid--2">
-      <div class="surface">
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="kicker">01/2020 - 03/2020</p>
         <h3>Data Analytics Intensive Bootcamp</h3>
-        <p class="kicker">Ironhack, Lisbon Campus</p>
-        <p>Focused on Python, SQL, statistics, machine learning, and BI tools like Tableau.</p>
+        <p class="kicker">
+          Ironhack, Lisbon Campus <span aria-hidden="true"> &middot; </span> Lisbon, Portugal
+        </p>
+        <p>
+          Intensive bootcamp focused on Python, SQL, statistics, machine learning and data
+          visualization, with hands-on projects using BI tools such as Tableau.
+        </p>
       </div>
-      <div class="surface">
+      <div class="timeline-item">
+        <p class="kicker">10/2015 - 09/2019</p>
         <h3>Law Degree</h3>
-        <p class="kicker">NOVA School of Law</p>
-        <p>Training in civil, criminal, administrative, and commercial law.</p>
+        <p class="kicker">
+          NOVA School of Law <span aria-hidden="true"> &middot; </span> Lisbon, Portugal
+        </p>
+        <p>
+          Comprehensive training in core areas of law (civil, criminal, administrative, commercial),
+          complemented by a postgraduate specialization in digital evidence in criminal proceedings.
+        </p>
       </div>
     </div>
   </Section>
 
   <Section eyebrow="Languages" title="Spoken languages">
     <div class="surface">
-      <div class="tag-list">
+      <div class="progress-list" data-progress-list>
         {
           spokenLanguages.map((item) => (
-            <span class="badge">
-              {item.language} ({item.level})
-            </span>
+            <div class="progress-item">
+              <div class="progress__header">
+                <span class="progress__label">{item.language}</span>
+                <span class="kicker">
+                  {item.level} <span aria-hidden="true"> &middot; </span> {item.score}/100
+                </span>
+              </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label={`${item.language} proficiency`}
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow={item.score}
+              >
+                <span class="progress__fill" style={`--progress: ${item.score}%`} />
+              </div>
+            </div>
           ))
         }
       </div>
     </div>
   </Section>
 
+  <script is:inline>
+    (() => {
+      const list = document.querySelector('[data-progress-list]');
+      if (!list) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        list.classList.add('is-visible');
+        return;
+      }
+      list.setAttribute('data-animate', 'true');
+      if (!('IntersectionObserver' in window)) {
+        list.classList.add('is-visible');
+        return;
+      }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              list.classList.add('is-visible');
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.35 },
+      );
+      observer.observe(list);
+    })();
+  </script>
+
   <Section eyebrow="Interests" title="Outside of work">
     <div class="surface">
-      <ul>
-        {interests.map((item) => <li>{item}</li>)}
+      <p class="lede">I recharge with travel, photography, RPGs, and learning languages.</p>
+      <ul class="interest-grid">
+        <li>
+          <div class="interest-card" tabindex="0">
+            <span class="interest-card__icon" aria-hidden="true">✈️</span>
+            <span class="interest-card__title">Travel</span>
+            <span class="interest-card__meta">City breaks &amp; food</span>
+          </div>
+        </li>
+        <li>
+          <div class="interest-card" tabindex="0">
+            <span class="interest-card__icon" aria-hidden="true">📷</span>
+            <span class="interest-card__title">Photography</span>
+            <span class="interest-card__meta">Street / landscapes</span>
+          </div>
+        </li>
+        <li>
+          <div class="interest-card" tabindex="0">
+            <span class="interest-card__icon" aria-hidden="true">🇯🇵</span>
+            <span class="interest-card__title">Japan &amp; anime</span>
+            <span class="interest-card__meta">Culture + seasonal picks</span>
+          </div>
+        </li>
+        <li>
+          <div class="interest-card" tabindex="0">
+            <span class="interest-card__icon" aria-hidden="true">🎮</span>
+            <span class="interest-card__title">Gaming</span>
+            <span class="interest-card__meta">RPGs, co-op (Xbox)</span>
+          </div>
+        </li>
+        <li>
+          <div class="interest-card" tabindex="0">
+            <span class="interest-card__icon" aria-hidden="true">🍏</span>
+            <span class="interest-card__title">Apple ecosystem</span>
+            <span class="interest-card__meta">Personal tech &amp; setups</span>
+          </div>
+        </li>
+        <li>
+          <div class="interest-card" tabindex="0">
+            <span class="interest-card__icon" aria-hidden="true">🗣️</span>
+            <span class="interest-card__title">Language learning</span>
+            <span class="interest-card__meta">French learner</span>
+          </div>
+        </li>
       </ul>
     </div>
   </Section>
