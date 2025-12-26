@@ -663,6 +663,15 @@ main {
   color: var(--color-muted);
 }
 
+.socials .icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.socials .icon--linkedin {
+  transform: translateY(-1px);
+}
+
 .surface {
   background: var(--color-surface);
   border-radius: var(--radius-lg);
