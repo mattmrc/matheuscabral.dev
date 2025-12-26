@@ -1,18 +1,31 @@
 ---
-const { id, eyebrow, title, subtitle, class: className = '', headingLevel = 2 } = Astro.props;
+const {
+  id,
+  eyebrow,
+  title,
+  subtitle,
+  class: className = '',
+  headingLevel = 2,
+  reveal = false,
+} = Astro.props;
 const hasHeader = eyebrow || title || subtitle;
 const HeadingTag = headingLevel === 1 ? 'h1' : 'h2';
+const shouldReveal = reveal || headingLevel === 1;
+const headlineClass = `headline${shouldReveal ? ' reveal' : ''}`;
+const subheadClass = `subhead${shouldReveal ? ' reveal reveal-delay-1' : ''}`;
 ---
 
 <section id={id} class={`section ${className}`.trim()}>
   <div class="container">
-    {hasHeader && (
-      <div class="section__header">
-        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
-        {title && <HeadingTag class="headline">{title}</HeadingTag>}
-        {subtitle && <p class="subhead">{subtitle}</p>}
-      </div>
-    )}
+    {
+      hasHeader && (
+        <div class="section__header">
+          {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+          {title && <HeadingTag class={headlineClass}>{title}</HeadingTag>}
+          {subtitle && <p class={subheadClass}>{subtitle}</p>}
+        </div>
+      )
+    }
     <slot />
   </div>
 </section>

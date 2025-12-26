@@ -1,17 +1,18 @@
 ---
 import { formatDate } from '../utils/format';
-const { post } = Astro.props;
+const { post, class: className = '', revealDelay = '' } = Astro.props;
 const { data, slug } = post;
+const classes = ['card', 'reveal', 'card--post', className, revealDelay]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-<article class="card reveal card--post" data-card>
+<article class={classes} data-card>
   <div class="kicker card__meta" data-card-row="meta">{formatDate(data.date)}</div>
   <h3 class="card__title" data-card-row="title">{data.title}</h3>
   <p class="card__summary" data-card-row="summary">{data.summary}</p>
   <div class="tag-list card__tags" data-card-row="tags">
-    {data.tags.map((tag) => (
-      <span class="badge">{tag}</span>
-    ))}
+    {data.tags.map((tag: string) => <span class="badge">{tag}</span>)}
   </div>
   <a class="btn btn--ghost card__action" data-card-row="action" href={`/blog/${slug}`}>
     Read post

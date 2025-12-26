@@ -19,12 +19,10 @@ const { data } = post;
   <section class="section">
     <div class="container">
       <p class="eyebrow">{formatDate(data.date)}</p>
-      <h1 class="headline">{data.title}</h1>
-      <p class="subhead">{data.summary}</p>
+      <h1 class="headline reveal">{data.title}</h1>
+      <p class="subhead reveal reveal-delay-1">{data.summary}</p>
       <div class="tag-list" style="margin-top: var(--space-4);">
-        {data.tags.map((tag) => (
-          <Badge label={tag} />
-        ))}
+        {data.tags.map((tag) => <Badge label={tag} />)}
       </div>
     </div>
   </section>

@@ -3,10 +3,6 @@ const { href, variant = 'primary', class: className = '', type = 'button' } = As
 const Tag = href ? 'a' : 'button';
 ---
 
-<Tag
-  class={`btn btn--${variant} ${className}`.trim()}
-  href={href}
-  type={!href ? type : undefined}
->
+<Tag class={`btn btn--${variant} ${className}`.trim()} href={href} type={!href ? type : undefined}>
   <slot />
 </Tag>

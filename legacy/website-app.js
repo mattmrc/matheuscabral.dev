@@ -2,87 +2,100 @@
 const portfolioData = {
   projects: [
     {
-      title: "Real-time Data Pipeline",
-      category: "infrastructure",
-      description: "Built a scalable real-time data pipeline processing 100M+ events daily using Kafka, Spark Streaming, and AWS infrastructure.",
-      technologies: ["Apache Kafka", "Spark Streaming", "AWS", "Python", "Docker"],
-      impact: "Reduced data processing latency by 90% and improved system reliability to 99.9% uptime.",
-      github: "#",
-      demo: "#"
+      title: 'Real-time Data Pipeline',
+      category: 'infrastructure',
+      description:
+        'Built a scalable real-time data pipeline processing 100M+ events daily using Kafka, Spark Streaming, and AWS infrastructure.',
+      technologies: ['Apache Kafka', 'Spark Streaming', 'AWS', 'Python', 'Docker'],
+      impact:
+        'Reduced data processing latency by 90% and improved system reliability to 99.9% uptime.',
+      github: '#',
+      demo: '#',
     },
     {
-      title: "Cloud Data Lake Migration",
-      category: "architecture",
-      description: "Led migration of legacy data warehouse to cloud-native data lake architecture, improving scalability and reducing costs.",
-      technologies: ["AWS S3", "AWS Glue", "Apache Spark", "Terraform", "SQL"],
-      impact: "Reduced infrastructure costs by 60% while improving query performance by 3x.",
-      github: "#",
-      demo: "#"
+      title: 'Cloud Data Lake Migration',
+      category: 'architecture',
+      description:
+        'Led migration of legacy data warehouse to cloud-native data lake architecture, improving scalability and reducing costs.',
+      technologies: ['AWS S3', 'AWS Glue', 'Apache Spark', 'Terraform', 'SQL'],
+      impact: 'Reduced infrastructure costs by 60% while improving query performance by 3x.',
+      github: '#',
+      demo: '#',
     },
     {
-      title: "ML Feature Pipeline",
-      category: "machine-learning",
-      description: "Designed and implemented automated feature engineering pipeline for machine learning models in production.",
-      technologies: ["Apache Airflow", "Python", "scikit-learn", "PostgreSQL", "Redis"],
-      impact: "Accelerated model deployment time from weeks to hours with automated feature validation.",
-      github: "#",
-      demo: "#"
+      title: 'ML Feature Pipeline',
+      category: 'machine-learning',
+      description:
+        'Designed and implemented automated feature engineering pipeline for machine learning models in production.',
+      technologies: ['Apache Airflow', 'Python', 'scikit-learn', 'PostgreSQL', 'Redis'],
+      impact:
+        'Accelerated model deployment time from weeks to hours with automated feature validation.',
+      github: '#',
+      demo: '#',
     },
     {
-      title: "ETL Framework",
-      category: "tools",
-      description: "Created reusable ETL framework with automatic schema detection and data quality validation.",
-      technologies: ["Python", "Pandas", "Great Expectations", "Apache Spark", "Kubernetes"],
-      impact: "Reduced ETL development time by 70% across multiple projects with built-in quality checks.",
-      github: "#",
-      demo: "#"
-    }
+      title: 'ETL Framework',
+      category: 'tools',
+      description:
+        'Created reusable ETL framework with automatic schema detection and data quality validation.',
+      technologies: ['Python', 'Pandas', 'Great Expectations', 'Apache Spark', 'Kubernetes'],
+      impact:
+        'Reduced ETL development time by 70% across multiple projects with built-in quality checks.',
+      github: '#',
+      demo: '#',
+    },
   ],
-  
+
   blogArticles: [
     {
-      title: "Building Resilient Data Pipelines: Lessons from Production",
-      category: "Engineering",
-      date: "2024-12-15",
-      excerpt: "Key strategies for creating robust data pipelines that can handle failures gracefully and maintain data quality at scale.",
-      readTime: "8 min read"
+      title: 'Building Resilient Data Pipelines: Lessons from Production',
+      category: 'Engineering',
+      date: '2024-12-15',
+      excerpt:
+        'Key strategies for creating robust data pipelines that can handle failures gracefully and maintain data quality at scale.',
+      readTime: '8 min read',
     },
     {
-      title: "The Modern Data Engineering Stack: Tools and Technologies in 2025",
-      category: "Technology",
-      date: "2024-12-01",
-      excerpt: "A comprehensive overview of the latest tools and technologies shaping the modern data engineering landscape.",
-      readTime: "12 min read"
+      title: 'The Modern Data Engineering Stack: Tools and Technologies in 2025',
+      category: 'Technology',
+      date: '2024-12-01',
+      excerpt:
+        'A comprehensive overview of the latest tools and technologies shaping the modern data engineering landscape.',
+      readTime: '12 min read',
     },
     {
-      title: "Data Quality Testing: A Comprehensive Guide",
-      category: "Best Practices",
-      date: "2024-11-20",
-      excerpt: "How to implement comprehensive data quality testing in large-scale data pipelines using modern tools and frameworks.",
-      readTime: "10 min read"
-    }
+      title: 'Data Quality Testing: A Comprehensive Guide',
+      category: 'Best Practices',
+      date: '2024-11-20',
+      excerpt:
+        'How to implement comprehensive data quality testing in large-scale data pipelines using modern tools and frameworks.',
+      readTime: '10 min read',
+    },
   ],
-  
+
   experience: [
     {
-      title: "Senior Data Engineer",
-      company: "TechCorp Inc.",
-      duration: "2022 - Present",
-      description: "Lead data engineering initiatives for enterprise-scale applications serving millions of users daily."
+      title: 'Senior Data Engineer',
+      company: 'TechCorp Inc.',
+      duration: '2022 - Present',
+      description:
+        'Lead data engineering initiatives for enterprise-scale applications serving millions of users daily.',
     },
     {
-      title: "Data Engineer",
-      company: "DataFlow Solutions",
-      duration: "2020 - 2022",
-      description: "Built data infrastructure from ground up, establishing best practices for data pipeline development."
+      title: 'Data Engineer',
+      company: 'DataFlow Solutions',
+      duration: '2020 - 2022',
+      description:
+        'Built data infrastructure from ground up, establishing best practices for data pipeline development.',
     },
     {
-      title: "Junior Data Analyst",
-      company: "Analytics Pro",
-      duration: "2019 - 2020",
-      description: "Developed analytical solutions and reports for business stakeholders using SQL and Python."
-    }
-  ]
+      title: 'Junior Data Analyst',
+      company: 'Analytics Pro',
+      duration: '2019 - 2020',
+      description:
+        'Developed analytical solutions and reports for business stakeholders using SQL and Python.',
+    },
+  ],
 };
 
 // DOM Elements
@@ -101,8 +114,9 @@ const contactForm = document.getElementById('contact-form');
 // Theme Management
 class ThemeManager {
   constructor() {
-    this.currentTheme = localStorage.getItem('theme') || 
-                       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    this.currentTheme =
+      localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     this.init();
   }
 
@@ -142,19 +156,19 @@ class NavigationManager {
   }
 
   setupSmoothScrolling() {
-    this.navLinks.forEach(link => {
+    this.navLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
-        
+
         if (targetSection) {
           const offsetTop = targetSection.offsetTop - 80;
           window.scrollTo({
             top: offsetTop,
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
-          
+
           // Close mobile menu if open
           navMenu.classList.remove('active');
           mobileMenuToggle.classList.remove('active');
@@ -165,7 +179,7 @@ class NavigationManager {
 
   setupScrollSpy() {
     let ticking = false;
-    
+
     window.addEventListener('scroll', () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -181,17 +195,17 @@ class NavigationManager {
     const scrollPos = window.scrollY + 100;
     let currentSection = '';
 
-    this.sections.forEach(section => {
+    this.sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
-      
+
       if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
         currentSection = section.getAttribute('id');
       }
     });
 
     // Update active nav link and indicator
-    this.navLinks.forEach(link => {
+    this.navLinks.forEach((link) => {
       const section = link.getAttribute('data-section');
       link.classList.toggle('active', section === currentSection);
     });
@@ -201,14 +215,14 @@ class NavigationManager {
 
   updateIndicator(activeSection) {
     const activeLink = document.querySelector(`[data-section="${activeSection}"]`);
-    
+
     if (activeLink && this.indicator) {
       const linkRect = activeLink.getBoundingClientRect();
       const navRect = navMenu.getBoundingClientRect();
-      
+
       const left = linkRect.left - navRect.left;
       const width = linkRect.width;
-      
+
       this.indicator.style.left = `${left}px`;
       this.indicator.style.width = `${width}px`;
       this.indicator.style.opacity = '1';
@@ -224,7 +238,7 @@ class NavigationManager {
     });
 
     // Close mobile menu when clicking on a link
-    this.navLinks.forEach(link => {
+    this.navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         mobileMenuToggle.classList.remove('active');
@@ -242,16 +256,16 @@ class NavigationManager {
 
   setupNavbarScroll() {
     let lastScrollTop = 0;
-    
+
     window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
+
       if (scrollTop > 50) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
-      
+
       lastScrollTop = scrollTop;
     });
   }
@@ -279,7 +293,7 @@ class TypingAnimation {
 
   type() {
     const fullText = this.texts[this.currentIndex];
-    
+
     if (this.isDeleting) {
       this.currentText = fullText.substring(0, this.currentText.length - 1);
     } else {
@@ -319,11 +333,14 @@ class PortfolioManager {
   renderProjects() {
     if (!portfolioGrid) return;
 
-    const filteredProjects = this.currentFilter === 'all' 
-      ? this.projects 
-      : this.projects.filter(project => project.category === this.currentFilter);
+    const filteredProjects =
+      this.currentFilter === 'all'
+        ? this.projects
+        : this.projects.filter((project) => project.category === this.currentFilter);
 
-    portfolioGrid.innerHTML = filteredProjects.map(project => `
+    portfolioGrid.innerHTML = filteredProjects
+      .map(
+        (project) => `
       <div class="portfolio-item fade-in" data-category="${project.category}">
         <div class="portfolio-content">
           <h3 class="portfolio-title">${project.title}</h3>
@@ -331,7 +348,7 @@ class PortfolioManager {
           <p class="portfolio-description">${project.description}</p>
           
           <div class="portfolio-tech">
-            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            ${project.technologies.map((tech) => `<span class="tech-tag">${tech}</span>`).join('')}
           </div>
           
           <div class="portfolio-impact">
@@ -348,11 +365,13 @@ class PortfolioManager {
           </div>
         </div>
       </div>
-    `).join('');
+    `,
+      )
+      .join('');
 
     // Trigger fade-in animation
     setTimeout(() => {
-      document.querySelectorAll('.portfolio-item').forEach(item => {
+      document.querySelectorAll('.portfolio-item').forEach((item) => {
         item.classList.add('visible');
       });
     }, 100);
@@ -360,13 +379,13 @@ class PortfolioManager {
 
   setupFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(button => {
+
+    filterButtons.forEach((button) => {
       button.addEventListener('click', () => {
         // Update active filter button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
         button.classList.add('active');
-        
+
         // Update current filter and re-render
         this.currentFilter = button.getAttribute('data-filter');
         this.renderProjects();
@@ -376,10 +395,10 @@ class PortfolioManager {
 
   formatCategory(category) {
     const categoryMap = {
-      'infrastructure': 'Infrastructure',
-      'architecture': 'Architecture',
+      infrastructure: 'Infrastructure',
+      architecture: 'Architecture',
       'machine-learning': 'Machine Learning',
-      'tools': 'Tools & Frameworks'
+      tools: 'Tools & Frameworks',
     };
     return categoryMap[category] || category;
   }
@@ -399,7 +418,9 @@ class BlogManager {
   renderArticles() {
     if (!blogGrid) return;
 
-    blogGrid.innerHTML = this.articles.map(article => `
+    blogGrid.innerHTML = this.articles
+      .map(
+        (article) => `
       <article class="blog-card fade-in">
         <div class="blog-content">
           <div class="blog-meta">
@@ -416,11 +437,13 @@ class BlogManager {
           </div>
         </div>
       </article>
-    `).join('');
+    `,
+      )
+      .join('');
 
     // Trigger fade-in animation
     setTimeout(() => {
-      document.querySelectorAll('.blog-card').forEach(card => {
+      document.querySelectorAll('.blog-card').forEach((card) => {
         card.classList.add('visible');
       });
     }, 100);
@@ -431,7 +454,7 @@ class BlogManager {
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
-      day: 'numeric'
+      day: 'numeric',
     });
   }
 }
@@ -450,7 +473,9 @@ class ExperienceManager {
   renderTimeline() {
     if (!timeline) return;
 
-    timeline.innerHTML = this.experiences.map(experience => `
+    timeline.innerHTML = this.experiences
+      .map(
+        (experience) => `
       <div class="timeline-item fade-in">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -460,11 +485,13 @@ class ExperienceManager {
           <p class="timeline-description">${experience.description}</p>
         </div>
       </div>
-    `).join('');
+    `,
+      )
+      .join('');
 
     // Trigger fade-in animation
     setTimeout(() => {
-      document.querySelectorAll('.timeline-item').forEach(item => {
+      document.querySelectorAll('.timeline-item').forEach((item) => {
         item.classList.add('visible');
       });
     }, 100);
@@ -486,24 +513,23 @@ class ContactFormManager {
 
   async handleSubmit(e) {
     e.preventDefault();
-    
+
     const submitButton = this.form.querySelector('button[type="submit"]');
     const buttonText = submitButton.querySelector('.btn-text');
     const buttonLoading = submitButton.querySelector('.btn-loading');
-    
+
     // Show loading state
     buttonText.classList.add('hidden');
     buttonLoading.classList.remove('hidden');
     submitButton.disabled = true;
-    
+
     // Simulate form submission (replace with actual API call)
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       // Show success message
       this.showMessage('Message sent successfully!', 'success');
       this.form.reset();
-      
     } catch (error) {
       this.showMessage('Failed to send message. Please try again.', 'error');
     } finally {
@@ -520,9 +546,9 @@ class ContactFormManager {
     messageElement.className = `status status--${type}`;
     messageElement.textContent = message;
     messageElement.style.marginTop = '1rem';
-    
+
     this.form.appendChild(messageElement);
-    
+
     setTimeout(() => {
       messageElement.remove();
     }, 5000);
@@ -541,18 +567,21 @@ class ScrollAnimationManager {
   }
 
   setupIntersectionObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      },
+    );
 
-    this.elements.forEach(element => {
+    this.elements.forEach((element) => {
       observer.observe(element);
     });
   }
@@ -623,22 +652,21 @@ class App {
         'Data Engineer',
         'Pipeline Architect',
         'Cloud Solutions Expert',
-        'ML Infrastructure Engineer'
+        'ML Infrastructure Engineer',
       ];
-      
+
       if (typingText) {
         this.managers.typing = new TypingAnimation(typingText, typingTexts, {
           typeSpeed: 100,
           deleteSpeed: 50,
-          pauseTime: 2000
+          pauseTime: 2000,
         });
       }
 
       // Initialize scroll animations for existing elements
       this.initializeScrollAnimations();
-      
+
       console.log('Portfolio application initialized successfully');
-      
     } catch (error) {
       console.error('Error initializing application:', error);
     }
@@ -651,11 +679,11 @@ class App {
       '.skills-category',
       '.section-header',
       '.contact-item',
-      '.contact-form'
+      '.contact-form',
     ];
 
-    animatedElements.forEach(selector => {
-      document.querySelectorAll(selector).forEach(element => {
+    animatedElements.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((element) => {
         element.classList.add('fade-in');
       });
     });

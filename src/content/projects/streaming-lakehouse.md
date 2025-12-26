@@ -7,18 +7,20 @@ highlights:
   - Reduced repetitive SQL logic by modularizing shared transformations.
   - Added validation checks to improve downstream data quality.
   - Simplified change requests by standardizing pipeline structure.
-links:
-  caseStudy: https://example.com
 featured: true
 status: Production
 ---
+
 ## Outcome
+
 A streamlined ETL workflow now powers finance reporting with clearer logic, faster updates, and fewer manual fixes.
 
 ## What I did
+
 - Rebuilt ingestion and transformation steps in Python and PySpark.
 - Standardized shared logic across datasets to reduce duplication.
 - Added validation checks before publishing to reporting tables.
 
 ## Next steps
+
 Expand automated monitoring to flag data anomalies before stakeholders see them.

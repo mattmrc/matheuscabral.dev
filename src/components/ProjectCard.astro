@@ -1,30 +1,31 @@
 ---
 import Badge from './Badge.astro';
-const { project } = Astro.props;
+const { project, class: className = '', revealDelay = '' } = Astro.props;
 const { data, slug } = project;
+const classes = ['card', 'reveal', 'card--project', className, revealDelay]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-<article class="card reveal card--project" data-card>
+<article class={classes} data-card>
   <div class="project-card__header card__header">
     <h3 class="card__title" data-card-row="title">{data.title}</h3>
-    {data.status ? (
-      <div class="card__meta" data-card-row="meta">
-        <Badge label={data.status} />
-      </div>
-    ) : (
-      <div class="card__meta" data-card-row="meta" aria-hidden="true"></div>
-    )}
+    {
+      data.status ? (
+        <div class="card__meta" data-card-row="meta">
+          <Badge label={data.status} />
+        </div>
+      ) : (
+        <div class="card__meta" data-card-row="meta" aria-hidden="true" />
+      )
+    }
   </div>
   <p class="card__summary" data-card-row="summary">{data.description}</p>
   <div class="tag-list card__tags" data-card-row="tags">
-    {data.tags.map((tag) => (
-      <span class="badge">{tag}</span>
-    ))}
+    {data.tags.map((tag: string) => <span class="badge">{tag}</span>)}
   </div>
   <div class="tag-list card__stack" data-card-row="stack">
-    {data.stack.map((item) => (
-      <span class="kicker">{item}</span>
-    ))}
+    {data.stack.map((item: string) => <span class="kicker">{item}</span>)}
   </div>
   <a class="btn btn--ghost card__action" data-card-row="action" href={`/portfolio/${slug}`}>
     View project

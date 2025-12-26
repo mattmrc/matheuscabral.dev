@@ -13,28 +13,30 @@ import { site, values, skills, timeline } from '../data/site';
     headingLevel={1}
   >
     <div class="grid grid--2">
-      <div class="surface">
+      <div class="surface reveal reveal-delay-1">
         <p class="kicker">Bio</p>
-        <h3 style="font-size: var(--step-2);">Hi, I&apos;m {site.name}.</h3>
+        <h2 class="heading-sm">Hi, I&apos;m {site.name}.</h2>
         <p>
-          I&apos;m a data engineer with hands-on experience building end-to-end ETL pipelines in Python,
-          PySpark, and SQL. Most of my work happens in Databricks, where I design reliable data models
-          that feed Power BI dashboards for financial KPIs and management reporting.
+          I&apos;m a data engineer with hands-on experience building end-to-end ETL pipelines in
+          Python, PySpark, and SQL. Most of my work happens in Databricks, where I design reliable
+          data models that feed Power BI dashboards for financial KPIs and management reporting.
         </p>
         <p>
           I own the workflow from stakeholder requirements through deployment and monitoring, making
           sure the data stays accurate, reusable, and easy to change as reporting needs evolve.
         </p>
       </div>
-      <div class="surface">
+      <div class="surface reveal reveal-delay-1">
         <p class="kicker">Values</p>
         <div class="listing">
-          {values.map((value) => (
-            <div>
-              <h4>{value.title}</h4>
-              <p>{value.description}</p>
-            </div>
-          ))}
+          {
+            values.map((value) => (
+              <div>
+                <h3 class="heading-xs">{value.title}</h3>
+                <p>{value.description}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -49,33 +51,25 @@ import { site, values, skills, timeline } from '../data/site';
       <Card>
         <h3>Languages</h3>
         <div class="tag-list">
-          {skills.languages.map((item) => (
-            <span class="badge">{item}</span>
-          ))}
+          {skills.languages.map((item) => <span class="badge">{item}</span>)}
         </div>
       </Card>
       <Card>
         <h3>Platforms</h3>
         <div class="tag-list">
-          {skills.platforms.map((item) => (
-            <span class="badge">{item}</span>
-          ))}
+          {skills.platforms.map((item) => <span class="badge">{item}</span>)}
         </div>
       </Card>
       <Card>
         <h3>Tools</h3>
         <div class="tag-list">
-          {skills.tools.map((item) => (
-            <span class="badge">{item}</span>
-          ))}
+          {skills.tools.map((item) => <span class="badge">{item}</span>)}
         </div>
       </Card>
       <Card>
         <h3>Practices</h3>
         <div class="tag-list">
-          {skills.practices.map((item) => (
-            <span class="badge">{item}</span>
-          ))}
+          {skills.practices.map((item) => <span class="badge">{item}</span>)}
         </div>
       </Card>
     </div>
@@ -87,14 +81,16 @@ import { site, values, skills, timeline } from '../data/site';
     subtitle="A quick view of the roles that shaped my approach to data engineering."
   >
     <div class="timeline">
-      {timeline.map((item) => (
-        <div class="timeline-item">
-          <p class="kicker">{item.period}</p>
-          <h3>{item.role}</h3>
-          <p class="kicker">{item.company}</p>
-          <p>{item.summary}</p>
-        </div>
-      ))}
+      {
+        timeline.map((item) => (
+          <div class="timeline-item">
+            <p class="kicker">{item.period}</p>
+            <h3>{item.role}</h3>
+            <p class="kicker">{item.company}</p>
+            <p>{item.summary}</p>
+          </div>
+        ))
+      }
     </div>
   </Section>
 </BaseLayout>

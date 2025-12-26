@@ -51,18 +51,15 @@ export const metrics = [
 export const values = [
   {
     title: 'Data quality by default',
-    description:
-      'Validation and monitoring keep reports consistent and reduce manual cleanup.',
+    description: 'Validation and monitoring keep reports consistent and reduce manual cleanup.',
   },
   {
     title: 'Reusable pipeline design',
-    description:
-      'Modular ETL logic speeds up change requests and future enhancements.',
+    description: 'Modular ETL logic speeds up change requests and future enhancements.',
   },
   {
     title: 'Business-first reporting',
-    description:
-      'Dashboards should match real stakeholder needs and regulatory requirements.',
+    description: 'Dashboards should match real stakeholder needs and regulatory requirements.',
   },
 ];
 

@@ -1,287 +1,293 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Engineer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <span class="brand-text">DataEngineer</span>
-            </div>
-            
-            <!-- Desktop Navigation -->
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link" data-section="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link" data-section="about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#blog" class="nav-link" data-section="blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-                </li>
-                <div class="nav-indicator" id="nav-indicator"></div>
-            </ul>
-
-            <!-- Theme Switcher -->
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <span class="theme-icon sun-icon">☀️</span>
-                <span class="theme-icon moon-icon">🌙</span>
-            </button>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
+      <div class="nav-container">
+        <div class="nav-brand">
+          <span class="brand-text">DataEngineer</span>
         </div>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link" data-section="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" data-section="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="#blog" class="nav-link" data-section="blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+          </li>
+          <div class="nav-indicator" id="nav-indicator"></div>
+        </ul>
+
+        <!-- Theme Switcher -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-icon sun-icon">☀️</span>
+          <span class="theme-icon moon-icon">🌙</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="hero-background">
-            <div class="gradient-overlay"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        Hi, I'm <span class="highlight">Alex Thompson</span>
-                    </h1>
-                    <div class="hero-subtitle">
-                        <span class="typing-text" id="typing-text"></span>
-                        <span class="cursor">|</span>
-                    </div>
-                    <p class="hero-description">
-                        Building scalable data solutions that drive business insights and innovation. 
-                        Passionate about transforming raw data into actionable intelligence.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#portfolio" class="btn btn--primary">View My Work</a>
-                        <a href="#contact" class="btn btn--outline">Get In Touch</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="profile-placeholder">
-                        <div class="profile-icon">👨‍💻</div>
-                    </div>
-                </div>
+      <div class="hero-background">
+        <div class="gradient-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">Hi, I'm <span class="highlight">Alex Thompson</span></h1>
+            <div class="hero-subtitle">
+              <span class="typing-text" id="typing-text"></span>
+              <span class="cursor">|</span>
             </div>
+            <p class="hero-description">
+              Building scalable data solutions that drive business insights and innovation.
+              Passionate about transforming raw data into actionable intelligence.
+            </p>
+            <div class="hero-actions">
+              <a href="#portfolio" class="btn btn--primary">View My Work</a>
+              <a href="#contact" class="btn btn--outline">Get In Touch</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="profile-placeholder">
+              <div class="profile-icon">👨‍💻</div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Passionate about data engineering and building robust systems</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        With over 5 years of experience in data engineering, I specialize in building 
-                        scalable data pipelines, designing cloud-native architectures, and implementing 
-                        real-time streaming solutions that process millions of events daily.
-                    </p>
-                    <p>
-                        I'm passionate about leveraging cutting-edge technologies to solve complex data 
-                        challenges and drive business value through intelligent data solutions.
-                    </p>
-                </div>
-
-                <div class="skills-grid">
-                    <div class="skills-category">
-                        <h3 class="skills-title">Languages</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">Scala</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">JavaScript</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-category">
-                        <h3 class="skills-title">Platforms</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">Azure</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Docker</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-category">
-                        <h3 class="skills-title">Tools</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">Apache Spark</span>
-                            <span class="skill-tag">Apache Kafka</span>
-                            <span class="skill-tag">Airflow</span>
-                            <span class="skill-tag">dbt</span>
-                            <span class="skill-tag">Terraform</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-category">
-                        <h3 class="skills-title">Databases</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">Redis</span>
-                            <span class="skill-tag">Snowflake</span>
-                            <span class="skill-tag">BigQuery</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            Passionate about data engineering and building robust systems
+          </p>
         </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              With over 5 years of experience in data engineering, I specialize in building scalable
+              data pipelines, designing cloud-native architectures, and implementing real-time
+              streaming solutions that process millions of events daily.
+            </p>
+            <p>
+              I'm passionate about leveraging cutting-edge technologies to solve complex data
+              challenges and drive business value through intelligent data solutions.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skills-category">
+              <h3 class="skills-title">Languages</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Scala</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">JavaScript</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h3 class="skills-title">Platforms</h3>
+              <div class="skills-list">
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">GCP</span>
+                <span class="skill-tag">Azure</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Docker</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h3 class="skills-title">Tools</h3>
+              <div class="skills-list">
+                <span class="skill-tag">Apache Spark</span>
+                <span class="skill-tag">Apache Kafka</span>
+                <span class="skill-tag">Airflow</span>
+                <span class="skill-tag">dbt</span>
+                <span class="skill-tag">Terraform</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h3 class="skills-title">Databases</h3>
+              <div class="skills-list">
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">Snowflake</span>
+                <span class="skill-tag">BigQuery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Portfolio</h2>
-                <p class="section-subtitle">Recent projects and data engineering solutions</p>
-            </div>
-
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-                <button class="filter-btn" data-filter="architecture">Architecture</button>
-                <button class="filter-btn" data-filter="machine-learning">ML</button>
-                <button class="filter-btn" data-filter="tools">Tools</button>
-            </div>
-
-            <div class="portfolio-grid" id="portfolio-grid">
-                <!-- Projects will be populated by JavaScript -->
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Portfolio</h2>
+          <p class="section-subtitle">Recent projects and data engineering solutions</p>
         </div>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+          <button class="filter-btn" data-filter="architecture">Architecture</button>
+          <button class="filter-btn" data-filter="machine-learning">ML</button>
+          <button class="filter-btn" data-filter="tools">Tools</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Projects will be populated by JavaScript -->
+        </div>
+      </div>
     </section>
 
     <!-- Blog Section -->
     <section id="blog" class="blog-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Latest Articles</h2>
-                <p class="section-subtitle">Insights and experiences from the data engineering world</p>
-            </div>
-
-            <div class="blog-grid" id="blog-grid">
-                <!-- Blog articles will be populated by JavaScript -->
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Latest Articles</h2>
+          <p class="section-subtitle">Insights and experiences from the data engineering world</p>
         </div>
+
+        <div class="blog-grid" id="blog-grid">
+          <!-- Blog articles will be populated by JavaScript -->
+        </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience" class="experience-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">My professional journey in data engineering</p>
-            </div>
-
-            <div class="timeline" id="timeline">
-                <!-- Experience items will be populated by JavaScript -->
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">My professional journey in data engineering</p>
         </div>
+
+        <div class="timeline" id="timeline">
+          <!-- Experience items will be populated by JavaScript -->
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's discuss your data engineering needs</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>alex.thompson@email.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h4>Location</h4>
-                            <p>San Francisco, CA</p>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-link" target="_blank" aria-label="LinkedIn">
-                            <span class="social-icon">💼</span>
-                        </a>
-                        <a href="#" class="social-link" target="_blank" aria-label="GitHub">
-                            <span class="social-icon">🐱</span>
-                        </a>
-                        <a href="#" class="social-link" target="_blank" aria-label="Twitter">
-                            <span class="social-icon">🐦</span>
-                        </a>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn--primary btn--full-width">
-                        <span class="btn-text">Send Message</span>
-                        <span class="btn-loading hidden">Sending...</span>
-                    </button>
-                </form>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Let's discuss your data engineering needs</p>
         </div>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <p>alex.thompson@email.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <p>+1 (555) 123-4567</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-details">
+                <h4>Location</h4>
+                <p>San Francisco, CA</p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="social-link" target="_blank" aria-label="LinkedIn">
+                <span class="social-icon">💼</span>
+              </a>
+              <a href="#" class="social-link" target="_blank" aria-label="GitHub">
+                <span class="social-icon">🐱</span>
+              </a>
+              <a href="#" class="social-link" target="_blank" aria-label="Twitter">
+                <span class="social-icon">🐦</span>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-control"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full-width">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading hidden">Sending...</span>
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

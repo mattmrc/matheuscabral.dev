@@ -12,11 +12,16 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
     subtitle="A concise view of experience, strengths, and focus areas."
     headingLevel={1}
   >
-    <div class="surface" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
+    <div
+      class="surface reveal reveal-delay-1"
+      style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;"
+    >
       <div style="flex: 1 1 260px;">
         <h3 style="font-size: var(--step-2);">{site.name}</h3>
         <p>{site.location}</p>
-        <p>{site.email}</p>
+        <p>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
       </div>
       <div style="display: flex; gap: var(--space-3);">
         <Button href="/resume.pdf" variant="outline">Download PDF</Button>
@@ -37,14 +42,16 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
 
   <Section eyebrow="Experience" title="Roles">
     <div class="timeline">
-      {timeline.map((item) => (
-        <div class="timeline-item">
-          <p class="kicker">{item.period}</p>
-          <h3>{item.role}</h3>
-          <p class="kicker">{item.company}</p>
-          <p>{item.summary}</p>
-        </div>
-      ))}
+      {
+        timeline.map((item) => (
+          <div class="timeline-item">
+            <p class="kicker">{item.period}</p>
+            <h3>{item.role}</h3>
+            <p class="kicker">{item.company}</p>
+            <p>{item.summary}</p>
+          </div>
+        ))
+      }
     </div>
   </Section>
 
@@ -62,9 +69,11 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
       <div class="surface">
         <h3>Technical toolkit</h3>
         <div class="tag-list">
-          {[...skills.languages, ...skills.platforms, ...skills.tools].map((item) => (
-            <span class="badge">{item}</span>
-          ))}
+          {
+            [...skills.languages, ...skills.platforms, ...skills.tools].map((item) => (
+              <span class="badge">{item}</span>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -88,9 +97,13 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
   <Section eyebrow="Languages" title="Spoken languages">
     <div class="surface">
       <div class="tag-list">
-        {spokenLanguages.map((item) => (
-          <span class="badge">{item.language} ({item.level})</span>
-        ))}
+        {
+          spokenLanguages.map((item) => (
+            <span class="badge">
+              {item.language} ({item.level})
+            </span>
+          ))
+        }
       </div>
     </div>
   </Section>
@@ -98,9 +111,7 @@ import { site, timeline, skills, spokenLanguages, interests } from '../data/site
   <Section eyebrow="Interests" title="Outside of work">
     <div class="surface">
       <ul>
-        {interests.map((item) => (
-          <li>{item}</li>
-        ))}
+        {interests.map((item) => <li>{item}</li>)}
       </ul>
     </div>
   </Section>

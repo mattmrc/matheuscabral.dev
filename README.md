@@ -31,19 +31,23 @@ ASTRO_TELEMETRY_DISABLED=1 npm run build
 ## Content and copy updates
 
 ### Site metadata and hero content
+
 Edit `src/data/site.ts` for:
+
 - name, location, email, availability
 - highlights, metrics, values
 - skills, timeline, languages, interests
 - featured highlights (hero panel)
 
 ### Add a project
+
 1. Create a Markdown file in `src/content/projects/`.
 2. Use the frontmatter schema from the examples:
    - `title`, `description`, `tags`, `stack`, `highlights`, `links`, `featured`, `status`
 3. Projects appear on `/portfolio`, and featured ones appear on the home page.
 
 ### Add a blog post
+
 1. Create a Markdown file in `src/content/blog/`.
 2. Include `title`, `summary`, `date`, and `tags` in frontmatter.
 3. Posts appear on `/blog` and the latest show on the home page.
@@ -51,12 +55,14 @@ Edit `src/data/site.ts` for:
 ## Contact form (Netlify Forms)
 
 The contact form is wired for Netlify Forms in `src/pages/contact.astro` and posts to `/success`.
+
 - Submissions are handled only on the deployed Netlify site.
 - Local dev does not send form submissions.
 
 ## Deployment (Netlify)
 
 `netlify.toml` is configured for Astro:
+
 - build command: `npm run build`
 - publish directory: `dist`
 - Node version: `22`
