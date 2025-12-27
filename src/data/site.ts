@@ -51,15 +51,23 @@ export const metrics = [
 export const values = [
   {
     title: 'Data quality by default',
-    description: 'Validation and monitoring keep reports consistent and reduce manual cleanup.',
+    description: 'Automated checks + alerts keep KPIs trustworthy.',
+    icon: 'shield-check',
   },
   {
     title: 'Reusable pipeline design',
-    description: 'Modular ETL logic speeds up change requests and future enhancements.',
+    description: 'Modular building blocks speed up change requests.',
+    icon: 'layers',
   },
   {
     title: 'Business-first reporting',
-    description: 'Dashboards should match real stakeholder needs and regulatory requirements.',
+    description: 'Metrics align with stakeholder decisions + governance.',
+    icon: 'target',
+  },
+  {
+    title: 'Clear documentation',
+    description: 'Shared definitions keep teams aligned and reduce churn.',
+    icon: 'document',
   },
 ];
 

@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
-import { site, values, skills, timeline } from '../data/site';
+import Icon from '../components/Icon.astro';
+import { site, values, skills, timeline, socials } from '../data/site';
 ---
 
 <BaseLayout title={`About - ${site.name}`}>
@@ -12,32 +13,82 @@ import { site, values, skills, timeline } from '../data/site';
     subtitle="I build ETL pipelines and KPI dashboards on Databricks and Power BI for finance and management teams."
     headingLevel={1}
   >
+    <ul class="about__highlights" aria-label="Focus highlights">
+      <li>
+        <span class="chip chip--highlight">
+          <span class="about__highlight-icon" aria-hidden="true">⚙️</span>
+          Databricks ETL
+        </span>
+      </li>
+      <li>
+        <span class="chip chip--highlight">
+          <span class="about__highlight-icon" aria-hidden="true">📊</span>
+          KPI Reporting
+        </span>
+      </li>
+      <li>
+        <span class="chip chip--highlight">
+          <span class="about__highlight-icon" aria-hidden="true">🛡️</span>
+          Data Quality &amp; Monitoring
+        </span>
+      </li>
+    </ul>
     <div class="grid grid--2">
-      <div class="surface reveal reveal-delay-1">
-        <p class="kicker">Bio</p>
-        <h2 class="heading-sm">Hi, I&apos;m {site.name}.</h2>
-        <p>
-          I&apos;m a data engineer with hands-on experience building end-to-end ETL pipelines in
-          Python, PySpark, and SQL. Most of my work happens in Databricks, where I design reliable
-          data models that feed Power BI dashboards for financial KPIs and management reporting.
-        </p>
-        <p>
-          I own the workflow from stakeholder requirements through deployment and monitoring, making
-          sure the data stays accurate, reusable, and easy to change as reporting needs evolve.
-        </p>
+      <div class="card about__identity reveal reveal-delay-1">
+        <p class="kicker about__card-label">Identity</p>
+        <div class="about__identity-top">
+          <div class="about__identity-photo">
+            <img src="/profile-picture.png" alt="Portrait of Matheus Cabral" loading="lazy" />
+          </div>
+          <div class="about__identity-meta">
+            <h2 class="heading-sm about__identity-name">{site.name}</h2>
+            <p class="about__identity-location">{site.location}</p>
+            <div class="about__identity-links">
+              <a class="btn btn--primary about__contact-btn" href="/contact">Contact</a>
+              {
+                socials.map((social) => (
+                  <a
+                    class="about__identity-link"
+                    href={social.href}
+                    aria-label={social.label}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Icon name={social.icon} size={14} />
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <p class="about__tagline">Let&apos;s make data work for your business.</p>
+        <hr class="about__divider" />
+        <div class="about__how">
+          <h3 class="heading-xs">How I work</h3>
+          <ul class="about__how-list">
+            <li>Translate stakeholder requirements into clear metrics + definitions</li>
+            <li>Build reliable Databricks ETL (Python/PySpark/SQL) with reusable patterns</li>
+            <li>Validate + monitor data quality to keep reporting consistent</li>
+            <li>Deliver KPI-ready models powering Power BI dashboards for finance/management</li>
+          </ul>
+        </div>
       </div>
-      <div class="surface reveal reveal-delay-1">
-        <p class="kicker">Values</p>
-        <div class="listing">
+      <div class="card about__values reveal reveal-delay-1">
+        <p class="kicker about__card-label">Values</p>
+        <h3 class="heading-xs about__values-title">What to expect when we work together</h3>
+        <ul class="about__values-grid">
           {
             values.map((value) => (
-              <div>
-                <h3 class="heading-xs">{value.title}</h3>
-                <p>{value.description}</p>
-              </div>
+              <li class="about__value-tile">
+                <span class="about__value-icon" aria-hidden="true">
+                  <Icon name={value.icon} size={14} />
+                </span>
+                <h3 class="about__value-title">{value.title}</h3>
+                <p class="about__value-desc">{value.description}</p>
+              </li>
             ))
           }
-        </div>
+        </ul>
       </div>
     </div>
   </Section>
