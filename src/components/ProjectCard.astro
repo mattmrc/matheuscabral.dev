@@ -2,7 +2,7 @@
 import Badge from './Badge.astro';
 const { project, class: className = '', revealDelay = '' } = Astro.props;
 const { data, slug } = project;
-const classes = ['card', 'reveal', 'card--project', className, revealDelay]
+const classes = ['card', 'card--interactive', 'reveal', 'card--project', className, revealDelay]
   .filter(Boolean)
   .join(' ');
 ---

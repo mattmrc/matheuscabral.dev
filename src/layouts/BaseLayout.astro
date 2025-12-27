@@ -139,7 +139,7 @@ const ogImage = new URL(image, site.url).href;
           if (themeToggle) {
             themeToggle.setAttribute(
               'aria-label',
-              value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+              value === 'dark' ? 'Switch theme to light mode' : 'Switch theme to dark mode',
             );
           }
         };
@@ -151,7 +151,7 @@ const ogImage = new URL(image, site.url).href;
           }
           themeToggle.setAttribute(
             'aria-label',
-            currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+            currentTheme === 'dark' ? 'Switch theme to light mode' : 'Switch theme to dark mode',
           );
           themeToggle.addEventListener('click', () => {
             const next =
