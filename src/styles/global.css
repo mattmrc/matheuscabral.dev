@@ -252,6 +252,7 @@ main {
 .subhead {
   font-size: var(--step-1);
   max-width: 48ch;
+  white-space: pre-line;
 }
 
 .grid {
