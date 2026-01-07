@@ -89,7 +89,3 @@ Playwright uses the built site via `npm run build` + `npm run preview`.
 - Project-local installs (npm): Astro, @astrojs/sitemap, @astrojs/check, Playwright, Prettier, and font packages.
 - Global installs (Homebrew): Node.js + npm, Google Chrome (for Playwright MCP validation).
 - Conda: not used for this project.
-
-## Legacy archive
-
-The previous implementation was preserved in `legacy/`.
