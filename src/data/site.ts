@@ -104,7 +104,7 @@ export const timeline = [
       'Design and maintain ETL pipelines in Python, PySpark, and SQL, plus Power BI dashboards for finance and management.',
   },
   {
-    role: 'Data Analyst',
+    role: 'Data Engineer',
     company: 'Protegrity',
     location: site.location,
     period: '08/2021 - 10/2023',
