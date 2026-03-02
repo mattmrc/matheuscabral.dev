@@ -1,8 +1,16 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { site } from '../data/site';
+import { site, socials } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noFooter?: boolean;
+}
 
 const {
   title = site.title,
@@ -13,6 +21,21 @@ const {
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL(image, site.url).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: 'Data Engineer',
+  url: site.url,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lisbon',
+    addressCountry: 'PT',
+  },
+  sameAs: socials.filter((s) => s.href.startsWith('http')).map((s) => s.href),
+};
 ---
 
 <!doctype html>
@@ -23,6 +46,7 @@ const ogImage = new URL(image, site.url).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -36,6 +60,8 @@ const ogImage = new URL(image, site.url).href;
     <meta name="theme-color" content="#0b1110" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f5f1ea" media="(prefers-color-scheme: light)" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <ViewTransitions />
     <script is:inline>
       (() => {
         const storageKey = 'theme';
@@ -63,149 +89,9 @@ const ogImage = new URL(image, site.url).href;
       <slot />
     </main>
     {!noFooter && <Footer />}
-    <script is:inline>
-      (() => {
-        const menu = document.querySelector('[data-nav-menu]');
-        const toggle = document.querySelector('[data-nav-toggle]');
-        const themeToggle = document.querySelector('[data-theme-toggle]');
-        const themeIcon = document.querySelector('[data-theme-icon]');
-        const storageKey = 'theme';
-        const navLinks = menu ? Array.from(menu.querySelectorAll('a')) : [];
-        const mobileMenuQuery = window.matchMedia('(max-width: 900px)');
-
-        const setMenuState = (isOpen) => {
-          if (!menu || !toggle) return;
-          if (!mobileMenuQuery.matches) {
-            menu.dataset.open = 'true';
-            menu.setAttribute('aria-hidden', 'false');
-            menu.removeAttribute('inert');
-            toggle.setAttribute('aria-expanded', 'false');
-            navLinks.forEach((link) => link.removeAttribute('tabindex'));
-            return;
-          }
-          if (!isOpen && menu.contains(document.activeElement)) {
-            toggle.focus({ preventScroll: true });
-          }
-          menu.dataset.open = isOpen ? 'true' : 'false';
-          menu.setAttribute('aria-hidden', String(!isOpen));
-          if (isOpen) {
-            menu.removeAttribute('inert');
-          } else {
-            menu.setAttribute('inert', '');
-          }
-          toggle.setAttribute('aria-expanded', String(isOpen));
-          navLinks.forEach((link) => {
-            if (isOpen) {
-              link.removeAttribute('tabindex');
-            } else {
-              link.setAttribute('tabindex', '-1');
-            }
-          });
-        };
-
-        const closeMenu = () => {
-          setMenuState(false);
-        };
-
-        if (toggle && menu) {
-          setMenuState(false);
-          mobileMenuQuery.addEventListener('change', () => setMenuState(false));
-          toggle.addEventListener('click', () => {
-            if (!mobileMenuQuery.matches) return;
-            const isOpen = menu.dataset.open === 'true';
-            setMenuState(!isOpen);
-          });
-
-          menu.querySelectorAll('a').forEach((link) => {
-            link.addEventListener('click', closeMenu);
-          });
-
-          window.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') closeMenu();
-          });
-        }
-
-        const setTheme = (value) => {
-          document.documentElement.dataset.theme = value;
-          document.documentElement.style.colorScheme = value;
-          try {
-            localStorage.setItem(storageKey, value);
-          } catch (error) {
-            // Ignore storage failures in restricted contexts.
-          }
-          if (themeIcon) {
-            themeIcon.textContent = value === 'dark' ? '🌙' : '☀️';
-          }
-          if (themeToggle) {
-            themeToggle.setAttribute(
-              'aria-label',
-              value === 'dark' ? 'Switch theme to light mode' : 'Switch theme to dark mode',
-            );
-          }
-        };
-
-        if (themeToggle) {
-          const currentTheme = document.documentElement.dataset.theme || 'dark';
-          if (themeIcon) {
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
-          }
-          themeToggle.setAttribute(
-            'aria-label',
-            currentTheme === 'dark' ? 'Switch theme to light mode' : 'Switch theme to dark mode',
-          );
-          themeToggle.addEventListener('click', () => {
-            const next =
-              (document.documentElement.dataset.theme || 'dark') === 'dark' ? 'light' : 'dark';
-            setTheme(next);
-          });
-        }
-
-        const cardRowKeys = ['meta', 'title', 'summary', 'tags', 'stack', 'action'];
-        const cardGrids = Array.from(document.querySelectorAll('[data-card-grid]'));
-
-        const equalizeGrid = (grid) => {
-          const cards = Array.from(grid.querySelectorAll('[data-card]')).filter(
-            (card) => card.offsetParent !== null,
-          );
-          if (!cards.length) return;
-          cardRowKeys.forEach((key) => {
-            let maxHeight = 0;
-            cards.forEach((card) => {
-              const row = card.querySelector(`[data-card-row="${key}"]`);
-              if (!row) return;
-              row.style.minHeight = '0px';
-              const height = row.offsetHeight;
-              if (height > maxHeight) maxHeight = height;
-            });
-            cards.forEach((card) => {
-              const row = card.querySelector(`[data-card-row="${key}"]`);
-              if (!row) return;
-              row.style.minHeight = maxHeight ? `${maxHeight}px` : '0px';
-            });
-          });
-        };
-
-        const equalizeAll = () => {
-          cardGrids.forEach((grid) => {
-            equalizeGrid(grid);
-          });
-        };
-
-        const scheduleEqualize = () => {
-          window.requestAnimationFrame(equalizeAll);
-        };
-
-        if (cardGrids.length) {
-          scheduleEqualize();
-          let resizeTimer;
-          window.addEventListener('resize', () => {
-            window.clearTimeout(resizeTimer);
-            resizeTimer = window.setTimeout(scheduleEqualize, 120);
-          });
-          window.addEventListener('orientationchange', scheduleEqualize);
-          window.__equalizeCardGrids = scheduleEqualize;
-        }
-      })();
-    </script>
+    <script src="../scripts/theme.ts"></script>
+    <script src="../scripts/mobile-menu.ts"></script>
+    <script src="../scripts/scroll-reveal.ts"></script>
+    <script src="../scripts/card-equalizer.ts"></script>
   </body>
 </html>

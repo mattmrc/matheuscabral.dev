@@ -1,0 +1,85 @@
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+:root {
+  color-scheme: dark;
+  --font-sans: 'Space Grotesk', 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', 'Consolas', monospace;
+
+  --step--1: clamp(0.85rem, 0.83rem + 0.2vw, 0.95rem);
+  --step-0: clamp(1rem, 0.96rem + 0.3vw, 1.1rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.4vw, 1.35rem);
+  --step-2: clamp(1.45rem, 1.25rem + 0.7vw, 1.7rem);
+  --step-3: clamp(1.9rem, 1.5rem + 1.2vw, 2.4rem);
+  --step-4: clamp(2.5rem, 1.9rem + 2vw, 3.6rem);
+  --step-5: clamp(3.2rem, 2.2rem + 3.2vw, 4.6rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 8px 24px rgba(12, 16, 18, 0.08);
+  --shadow-md: 0 18px 46px rgba(12, 16, 18, 0.18);
+  --shadow-lg: 0 30px 80px rgba(12, 16, 18, 0.24);
+  --elev-1: var(--shadow-sm);
+  --elev-2: var(--shadow-md);
+  --elev-3: var(--shadow-lg);
+  --lift-1: -1px;
+  --lift-2: -2px;
+  --focus-outline: 2px solid var(--color-focus);
+  --focus-offset: 3px;
+
+  --container-width: 1200px;
+  --grid-gap: 1.5rem;
+  --section-pad: clamp(2rem, 4vw, 3.5rem);
+
+  --color-bg: #0b1110;
+  --color-surface: #111917;
+  --color-surface-2: #16211f;
+  --color-card: #101715;
+  --color-text: #f2f5f3;
+  --color-muted: #a7b2ad;
+  --color-accent: #2dd4bf;
+  --color-accent-strong: #1fbba9;
+  --color-highlight: #f4a261;
+  --color-border: #26332f;
+  --color-focus: rgba(45, 212, 191, 0.4);
+  --color-glow: rgba(45, 212, 191, 0.12);
+  --color-hero:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.2), transparent 48%),
+    radial-gradient(circle at 70% 10%, rgba(244, 162, 97, 0.2), transparent 50%);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: #f5f1ea;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0eae2;
+  --color-card: #fbf8f4;
+  --color-text: #1b1f23;
+  --color-muted: #5f6b6d;
+  --color-accent: #0f766e;
+  --color-accent-strong: #0b5f59;
+  --color-highlight: #d87a58;
+  --color-border: #d7d1c8;
+  --color-focus: rgba(15, 118, 110, 0.35);
+  --color-glow: rgba(15, 118, 110, 0.12);
+  --color-hero:
+    radial-gradient(circle at 10% 20%, rgba(15, 118, 110, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(216, 122, 88, 0.18), transparent 55%);
+}

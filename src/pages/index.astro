@@ -26,7 +26,7 @@ const posts = (await getCollection('blog'))
           I build end-to-end data pipelines in Python, PySpark, and SQL on Databricks, then deliver
           Power BI dashboards for finance and leadership teams.
         </p>
-        <div class="hero__actions" style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+        <div class="hero__actions">
           <Button href="/portfolio">Explore work</Button>
           <Button href="/contact" variant="outline"> Start a project </Button>
         </div>
@@ -43,7 +43,7 @@ const posts = (await getCollection('blog'))
       </div>
       <div class="surface surface--raised hero__panel reveal reveal-delay-2">
         <p class="kicker">Now building</p>
-        <h2 style="font-size: var(--step-2); margin-bottom: var(--space-4);">
+        <h2 class="hero__panel-title">
           Reporting pipelines that stay accurate, reusable, and easy to evolve.
         </h2>
         <div class="listing">
@@ -85,7 +85,7 @@ const posts = (await getCollection('blog'))
     <div class="grid grid--3" data-card-grid>
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
-    <div style="margin-top: var(--space-5);">
+    <div class="section-cta">
       <Button href="/portfolio" variant="ghost"> View the full portfolio </Button>
     </div>
   </Section>
@@ -105,17 +105,14 @@ const posts = (await getCollection('blog'))
     title="Let's build your next reporting pipeline"
     subtitle={"Need ETL help, dashboard delivery, or a data refresh?\nLet's align on the next steps."}
   >
-    <div
-      class="surface"
-      style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;"
-    >
-      <div style="flex: 1 1 260px;">
+    <div class="surface cta-surface">
+      <div class="cta-surface__info">
         <p class="kicker">Get in touch</p>
         <h3 style="font-size: var(--step-2);">
           <a href={`mailto:${site.email}`}>{site.email}</a>
         </h3>
       </div>
-      <div style="display: flex; gap: var(--space-3);">
+      <div class="cta-surface__actions">
         <Button href="/contact">Contact me</Button>
         <Button href="/resume" variant="outline"> View resume </Button>
       </div>

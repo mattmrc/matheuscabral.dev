@@ -133,8 +133,8 @@ import { site, values, skills, timeline, socials } from '../data/site';
   >
     <div class="timeline">
       {
-        timeline.map((item) => (
-          <div class="timeline-item">
+        timeline.map((item, index) => (
+          <div class={`timeline-item${index === 0 ? ' timeline-item--active' : ''}`}>
             <p class="kicker">{item.period}</p>
             <h3>{item.role}</h3>
             <p class="kicker">

@@ -11,26 +11,46 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 const { data } = post;
+const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 ---
 
 <BaseLayout title={`${data.title} - ${site.name}`} description={data.summary}>
   <section class="section">
     <div class="container">
-      <p class="eyebrow">{formatDate(data.date)}</p>
+      <p class="eyebrow">
+        {formatDate(data.date)}
+        {data.readingTime && <span> &middot; {data.readingTime}</span>}
+      </p>
       <h1 class="headline reveal">{data.title}</h1>
       <p class="subhead reveal reveal-delay-1">{data.summary}</p>
-      <div class="tag-list" style="margin-top: var(--space-4);">
+      <div class="tag-list tag-list--spaced">
         {data.tags.map((tag) => <Badge label={tag} />)}
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top: 0;">
+  <section class="section section--flush-top">
     <div class="container">
-      <div class="surface prose prose--center">
-        <Content />
+      <div class="post-layout">
+        {
+          tocHeadings.length > 0 && (
+            <aside class="toc">
+              <p class="toc__title">On this page</p>
+              <ul class="toc__list">
+                {tocHeadings.map((h) => (
+                  <li class={`toc__item--${h.depth}`}>
+                    <a href={`#${h.slug}`}>{h.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )
+        }
+        <div class="surface prose prose--center">
+          <Content />
+        </div>
       </div>
     </div>
   </section>

@@ -17,7 +17,7 @@ import Icon from '../components/Icon.astro';
       <div class="surface reveal reveal-delay-2">
         <h2 class="heading-sm">Start a conversation</h2>
         <p>For immediate replies, email or LinkedIn is best.</p>
-        <div class="socials" style="margin-top: var(--space-4);">
+        <div class="socials socials--spaced">
           {
             socials.map((social) => (
               <a href={social.href} target="_blank" rel="noreferrer">
@@ -27,9 +27,12 @@ import Icon from '../components/Icon.astro';
             ))
           }
         </div>
-        <p style="margin-top: var(--space-4);">
+        <p class="contact-email">
           <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
+        <div class="badge" style="margin-top: var(--space-5);">
+          {site.availability}
+        </div>
       </div>
       <form
         class="surface form reveal reveal-delay-2"
