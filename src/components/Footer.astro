@@ -1,6 +1,7 @@
 ---
 import { navLinks, site, socials } from '../data/site';
 import Icon from './Icon.astro';
+import Button from './Button.astro';
 ---
 
 <footer class="footer">
@@ -38,5 +39,16 @@ import Icon from './Icon.astro';
         {site.location}
       </p>
     </div>
+  </div>
+  <div class="container footer__cta">
+    <p class="footer__cta-text">
+      <strong>Currently employed full-time.</strong> Not taking on new projects right now, but feel free to connect.
+    </p>
+    <Button href="/contact" variant="outline">Get in touch</Button>
+  </div>
+  <div class="container">
+    <p class="footer__copyright">
+      &copy; {new Date().getFullYear()} {site.name}. Built with Astro.
+    </p>
   </div>
 </footer>

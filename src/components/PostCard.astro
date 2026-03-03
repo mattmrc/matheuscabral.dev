@@ -8,7 +8,10 @@ const classes = ['card', 'card--interactive', 'reveal', 'card--post', className,
 ---
 
 <article class={classes} data-card>
-  <div class="kicker card__meta" data-card-row="meta">{formatDate(data.date)}</div>
+  <div class="kicker card__meta" data-card-row="meta">
+    {formatDate(data.date)}
+    {data.readingTime && <span class="card__reading-time">{data.readingTime}</span>}
+  </div>
   <h3 class="card__title" data-card-row="title">{data.title}</h3>
   <p class="card__summary" data-card-row="summary">{data.summary}</p>
   <div class="tag-list card__tags" data-card-row="tags">

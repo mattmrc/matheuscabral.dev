@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
+import Timeline from '../components/Timeline.astro';
 import { site, timeline, spokenLanguages } from '../data/site';
 ---
 
@@ -42,22 +43,7 @@ import { site, timeline, spokenLanguages } from '../data/site';
   </Section>
 
   <Section eyebrow="Experience" title="Roles">
-    <div class="timeline">
-      {
-        timeline.map((item) => (
-          <div class="timeline-item">
-            <p class="kicker">{item.period}</p>
-            <h3>{item.role}</h3>
-            <p class="kicker">
-              {item.company}
-              {item.location && <span aria-hidden="true"> &middot; </span>}
-              {item.location}
-            </p>
-            <p>{item.summary}</p>
-          </div>
-        ))
-      }
-    </div>
+    <Timeline items={timeline} />
   </Section>
 
   <Section eyebrow="Skills" title="Capabilities">
