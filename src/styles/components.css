@@ -47,7 +47,8 @@
   opacity: 1;
 }
 
-.card--project::before {
+.card--project::before,
+.card--post::before {
   content: '';
   display: block;
   height: 3px;
@@ -809,5 +810,27 @@
     position: sticky;
     top: calc(72px + var(--space-5));
     align-self: start;
+    max-height: calc(100vh - 72px - var(--space-5) * 2);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .toc::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .toc::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .toc::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-pill);
+  }
+
+  .toc::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
   }
 }

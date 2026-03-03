@@ -96,6 +96,7 @@ h2,
 h3,
 h4,
 h5 {
+  scroll-margin-top: calc(72px + var(--space-5));
   color: var(--color-text);
   font-weight: 600;
   letter-spacing: -0.02em;

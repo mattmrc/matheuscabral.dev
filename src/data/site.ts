@@ -6,7 +6,7 @@ export const site = {
   url: 'https://matheuscabral.dev',
   email: 'hello@matheuscabral.dev',
   location: 'Lisbon, Portugal',
-  availability: 'Open to data engineering roles and consulting projects',
+  availability: 'Currently employed full-time at BNP Paribas',
 };
 
 export const navLinks = [
@@ -71,12 +71,28 @@ export const values = [
   },
 ];
 
-export const skills = {
-  languages: ['Python', 'SQL', 'PySpark', 'Spark SQL'],
-  platforms: ['Databricks', 'Power BI', 'Tableau'],
-  tools: ['Git', 'GitHub', 'Pandas', 'NumPy', 'Power BI Service'],
-  practices: ['ETL/ELT pipelines', 'Data modeling', 'Dashboards & reporting', 'Data validation'],
-};
+export const skills = [
+  {
+    title: 'Languages',
+    icon: 'code-bracket',
+    items: ['Python', 'SQL', 'PySpark', 'Spark SQL'],
+  },
+  {
+    title: 'Platforms',
+    icon: 'circle-stack',
+    items: ['Databricks', 'Power BI', 'Tableau'],
+  },
+  {
+    title: 'Tools',
+    icon: 'wrench-screwdriver',
+    items: ['Git', 'GitHub', 'Pandas', 'NumPy', 'Power BI Service'],
+  },
+  {
+    title: 'Practices',
+    icon: 'clipboard-document-list',
+    items: ['ETL/ELT pipelines', 'Data modeling', 'Dashboards & reporting', 'Data validation'],
+  },
+];
 
 export const spokenLanguages = [
   { language: 'Portuguese', level: 'C2', score: 100 },
@@ -101,7 +117,7 @@ export const timeline = [
     location: site.location,
     period: '11/2023 - Present',
     summary:
-      'Design and maintain ETL pipelines in Python, PySpark, and SQL, plus Power BI dashboards for finance and management.',
+      'Designed and maintained ETL pipelines in Python, PySpark, and SQL, plus Power BI dashboards for finance and management.',
   },
   {
     role: 'Data Engineer',
@@ -131,7 +147,7 @@ export const featuredHighlights = [
     title: 'Python + PySpark + Databricks',
   },
   {
-    label: 'Available for',
-    title: 'ETL pipeline design and dashboard delivery',
+    label: 'Current role',
+    title: 'Data Engineer at BNP Paribas',
   },
 ];
