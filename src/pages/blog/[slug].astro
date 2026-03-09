@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Badge from '../../components/Badge.astro';
 import { getCollection } from 'astro:content';
-import { formatDate } from '../../utils/format';
+import { formatDate, calcReadingTime } from '../../utils/format';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
@@ -20,8 +20,9 @@ export async function getStaticPaths() {
 
 const { post, prev, next } = Astro.props;
 const { Content, headings } = await post.render();
-const { data } = post;
+const { data, body } = post;
 const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+const readingTime = calcReadingTime(body);
 ---
 
 <BaseLayout title={`${data.title} - ${site.name}`} description={data.summary}>
@@ -30,7 +31,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
       <a href="/blog" class="back-link">&larr; All posts</a>
       <p class="eyebrow">
         {formatDate(data.date)}
-        {data.readingTime && <span> &middot; {data.readingTime}</span>}
+        <span> &middot; {readingTime}</span>
       </p>
       <h1 class="headline reveal">{data.title}</h1>
       <p class="subhead reveal reveal-delay-1">{data.summary}</p>

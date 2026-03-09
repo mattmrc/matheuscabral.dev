@@ -3,7 +3,6 @@ title: KPI Alignment with Stakeholders
 summary: How to translate business questions into stable KPI definitions, semantic models, and dashboards that stay trusted over time.
 date: 2025-01-28
 tags: [Power BI, Reporting, Stakeholders]
-readingTime: 10 min read
 ---
 
 Stakeholder alignment is the difference between a dashboard people rely on and one they politely ignore. In practice, most “reporting issues” are not tool problems — they’re definition problems: unclear scope, inconsistent time windows, hidden assumptions, or changes that happen without being communicated.

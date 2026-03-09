@@ -3,7 +3,6 @@ title: Power BI Dashboard QA Habits
 summary: Small quality checks that prevent last-minute surprises in reporting decks.
 date: 2024-12-10
 tags: [Power BI, QA, Reporting]
-readingTime: 8 min read
 ---
 
 Dashboards break trust when metrics drift. These QA habits keep KPI reports aligned with expectations — and they reduce the frantic “why did the number change?” moments right before a steering deck or exec review.
