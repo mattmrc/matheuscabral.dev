@@ -39,7 +39,16 @@ import { site, values, skills, timeline, socials } from '../data/site';
         <p class="kicker about__card-label">Identity</p>
         <div class="about__identity-top">
           <div class="about__identity-photo">
-            <img src="/profile-picture.png" alt="Portrait of Matheus Cabral" loading="lazy" />
+            <picture>
+              <source srcset="/profile-picture.webp" type="image/webp" />
+              <img
+                src="/profile-picture.png"
+                alt="Portrait of Matheus Cabral"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div class="about__identity-meta">
             <h2 class="heading-sm about__identity-name">{site.name}</h2>

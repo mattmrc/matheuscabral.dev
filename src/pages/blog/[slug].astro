@@ -7,10 +7,18 @@ import { site } from '../../data/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+  const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return sorted.map((post, index) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      prev: sorted[index + 1] ?? null,
+      next: sorted[index - 1] ?? null,
+    },
+  }));
 }
 
-const { post } = Astro.props;
+const { post, prev, next } = Astro.props;
 const { Content, headings } = await post.render();
 const { data } = post;
 const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
@@ -19,6 +27,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 <BaseLayout title={`${data.title} - ${site.name}`} description={data.summary}>
   <section class="section">
     <div class="container">
+      <a href="/blog" class="back-link">&larr; All posts</a>
       <p class="eyebrow">
         {formatDate(data.date)}
         {data.readingTime && <span> &middot; {data.readingTime}</span>}
@@ -52,6 +61,29 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
           <Content />
         </div>
       </div>
+
+      {
+        (prev || next) && (
+          <nav class="post-nav" aria-label="Post navigation">
+            <div class="post-nav__item post-nav__item--prev">
+              {prev && (
+                <a href={`/blog/${prev.slug}`}>
+                  <span class="post-nav__label">&larr; Previous</span>
+                  <span class="post-nav__title">{prev.data.title}</span>
+                </a>
+              )}
+            </div>
+            <div class="post-nav__item post-nav__item--next">
+              {next && (
+                <a href={`/blog/${next.slug}`}>
+                  <span class="post-nav__label">Next &rarr;</span>
+                  <span class="post-nav__title">{next.data.title}</span>
+                </a>
+              )}
+            </div>
+          </nav>
+        )
+      }
     </div>
   </section>
 </BaseLayout>
