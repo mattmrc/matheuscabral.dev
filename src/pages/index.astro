@@ -5,7 +5,7 @@ import Button from '../components/Button.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import PostCard from '../components/PostCard.astro';
 import Card from '../components/Card.astro';
-import { site, highlights, metrics, featuredHighlights } from '../data/site';
+import { site, highlights, metrics } from '../data/site';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
@@ -19,18 +19,20 @@ const posts = (await getCollection('blog'))
 <BaseLayout title={site.title} description={site.description}>
   <section class="section hero">
     <div class="container hero__wrap">
-      <div>
-        <p class="eyebrow">Data Engineer</p>
-        <h1 class="hero__title reveal">ETL pipelines and KPI reporting you can trust.</h1>
-        <p class="hero__subtitle reveal reveal-delay-1">
+      <div class="hero__content">
+        <p class="eyebrow hero-enter hero-enter--eyebrow">Data Engineer</p>
+        <h1 class="hero__title hero-enter hero-enter--title">
+          ETL pipelines and KPI reporting you can trust.
+        </h1>
+        <p class="hero__subtitle hero-enter hero-enter--subtitle">
           I build end-to-end data pipelines in Python, PySpark, and SQL on Databricks, then deliver
           Power BI dashboards for finance and leadership teams.
         </p>
-        <div class="hero__actions">
+        <div class="hero__actions hero-enter hero-enter--actions">
           <Button href="/portfolio">Explore work</Button>
           <Button href="/contact" variant="outline">Get in touch</Button>
         </div>
-        <div class="hero__metrics">
+        <div class="hero__metrics hero-enter hero-enter--metrics">
           {
             metrics.map((metric) => (
               <div class="metric">
@@ -41,20 +43,25 @@ const posts = (await getCollection('blog'))
           }
         </div>
       </div>
-      <div class="surface surface--raised hero__panel reveal reveal-delay-2">
-        <p class="kicker">Now building</p>
-        <h2 class="hero__panel-title">
-          Reporting pipelines that stay accurate, reusable, and easy to evolve.
-        </h2>
-        <div class="listing">
-          {
-            featuredHighlights.map((item) => (
-              <div>
-                <p class="kicker">{item.label}</p>
-                <strong>{item.title}</strong>
-              </div>
-            ))
-          }
+      <div class="hero__photo-composition">
+        <div class="hero__photo-frame hero-enter hero-enter--photo">
+          <picture>
+            <source srcset="/profile-picture.webp" type="image/webp" />
+            <img
+              src="/profile-picture.png"
+              alt="Portrait of Matheus Cabral"
+              width="400"
+              height="400"
+              loading="eager"
+            />
+          </picture>
+        </div>
+        <div class="hero__badge-row" aria-hidden="true">
+          <span class="hero-badge hero-enter hero-enter--badge-1">Python</span>
+          <span class="hero-badge hero-enter hero-enter--badge-2">PySpark</span>
+          <span class="hero-badge hero-enter hero-enter--badge-3">SQL</span>
+          <span class="hero-badge hero-enter hero-enter--badge-4">Databricks</span>
+          <span class="hero-badge hero-enter hero-enter--badge-5">Power BI</span>
         </div>
       </div>
     </div>

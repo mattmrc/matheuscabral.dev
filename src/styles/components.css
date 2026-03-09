@@ -143,6 +143,52 @@
   transition: border-color 200ms ease, color 200ms ease;
 }
 
+/* ── Hero floating badges ── */
+
+.hero-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  box-shadow: var(--elev-1);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.hero__badge-row {
+  display: contents;
+}
+
+/* Badge positions — scattered around the photo */
+.hero-enter--badge-1 { top: 5%;    left: 2%; }
+.hero-enter--badge-2 { top: 28%;   right: -4%; }
+.hero-enter--badge-3 { bottom: 30%; left: -4%; }
+.hero-enter--badge-4 { bottom: 2%;  right: 5%; }
+.hero-enter--badge-5 { top: -6%;   right: 16%; }
+
+@media (max-width: 900px) {
+  .hero__badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+
+  .hero-badge {
+    position: static;
+  }
+}
+
 /* ── Buttons ── */
 
 .btn {
@@ -812,7 +858,6 @@
     align-self: start;
     max-height: calc(100vh - 72px - var(--space-5) * 2);
     overflow-y: auto;
-    overscroll-behavior: contain;
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) transparent;
   }
