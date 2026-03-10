@@ -3,7 +3,6 @@ title: Building Reliable ETL in Databricks
 summary: A practical playbook + checklist for keeping Python and PySpark pipelines stable as reporting needs evolve.
 date: 2025-02-14
 tags: [ETL, Databricks, Reliability]
-readingTime: 10 min read
 ---
 
 Reliable ETL doesn’t happen by accident — it’s the outcome of **clear interfaces**, **repeatable patterns**, and **observable behavior**. This playbook is a pragmatic set of practices you can adopt in Databricks to keep pipelines stable even as sources change, stakeholders add new KPIs, and “quick fixes” start to pile up.

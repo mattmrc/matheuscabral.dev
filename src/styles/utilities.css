@@ -21,6 +21,130 @@
   transition-delay: 320ms;
 }
 
+/* ── Hero entrance keyframes ── */
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-photo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-badge-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Infinite float keyframes ── */
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 3px var(--color-accent),
+      0 0 24px 4px var(--color-glow),
+      0 0 60px 8px var(--color-glow);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px var(--color-accent),
+      0 0 32px 8px var(--color-glow),
+      0 0 80px 16px var(--color-glow);
+  }
+}
+
+/* ── Hero entrance orchestration ── */
+
+.hero-enter {
+  opacity: 0;
+}
+
+.hero-enter--eyebrow {
+  animation: hero-fade-up 600ms ease both 100ms;
+}
+
+.hero-enter--title {
+  animation: hero-slide-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both 200ms;
+}
+
+.hero-enter--subtitle {
+  animation: hero-fade-up 600ms ease both 400ms;
+}
+
+.hero-enter--actions {
+  animation: hero-fade-up 600ms ease both 550ms;
+}
+
+.hero-enter--metrics {
+  animation: hero-fade-up 600ms ease both 700ms;
+}
+
+.hero-enter--photo {
+  animation: hero-photo-in 800ms cubic-bezier(0.16, 1, 0.3, 1) both 300ms,
+    glow-pulse 4s ease-in-out infinite 1100ms;
+}
+
+.hero-enter--badge-1 {
+  animation: hero-badge-in 500ms ease both 800ms, float-y 6s ease-in-out infinite 1300ms;
+}
+
+.hero-enter--badge-2 {
+  animation: hero-badge-in 500ms ease both 900ms, float-x 7s ease-in-out infinite 1400ms;
+}
+
+.hero-enter--badge-3 {
+  animation: hero-badge-in 500ms ease both 1000ms, float-y 5.5s ease-in-out infinite 1500ms;
+}
+
+.hero-enter--badge-4 {
+  animation: hero-badge-in 500ms ease both 1100ms, float-x 6.5s ease-in-out infinite 1600ms;
+}
+
+.hero-enter--badge-5 {
+  animation: hero-badge-in 500ms ease both 1200ms, float-y 7.5s ease-in-out infinite 1700ms;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -30,6 +154,19 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .hero-enter {
+    opacity: 1;
+    animation: none !important;
+  }
+
+  .hero__photo-frame {
+    animation: none !important;
+    box-shadow:
+      0 0 0 3px var(--color-accent),
+      0 0 24px 4px var(--color-glow),
+      0 0 60px 8px var(--color-glow);
   }
 
   *,
@@ -86,5 +223,10 @@
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .hero-enter {
+    opacity: 1;
+    animation: none;
   }
 }

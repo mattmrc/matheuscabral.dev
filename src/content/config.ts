@@ -28,7 +28,6 @@ const blog = defineCollection({
     date: z.date(),
     summary: z.string(),
     tags: z.array(z.string()),
-    readingTime: z.string().optional(),
   }),
 });
 
