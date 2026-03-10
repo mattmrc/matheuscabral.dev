@@ -5,6 +5,7 @@ import Button from '../components/Button.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import PostCard from '../components/PostCard.astro';
 import Card from '../components/Card.astro';
+import Icon from '../components/Icon.astro';
 import { site, highlights, metrics } from '../data/site';
 import { getCollection } from 'astro:content';
 
@@ -76,6 +77,9 @@ const posts = (await getCollection('blog'))
       {
         highlights.map((item) => (
           <Card>
+            <span class="highlight-icon" aria-hidden="true">
+              <Icon name={item.icon} size={18} />
+            </span>
             <h3>{item.title}</h3>
             <p>{item.description}</p>
           </Card>
