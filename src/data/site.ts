@@ -29,16 +29,19 @@ export const highlights = [
     title: 'End-to-end ETL pipelines',
     description:
       'Design, build, and maintain ETL workflows in Python, PySpark, and SQL on Databricks.',
+    icon: 'arrow-path',
   },
   {
     title: 'Financial KPI reporting',
     description:
       'Power BI dashboards that align with finance, management, and regulatory reporting needs.',
+    icon: 'chart-bar',
   },
   {
     title: 'Stakeholder-led delivery',
     description:
       'Own requirements, deployment, and monitoring to keep reporting accurate and trusted.',
+    icon: 'users',
   },
 ];
 

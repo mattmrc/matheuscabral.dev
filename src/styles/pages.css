@@ -60,7 +60,10 @@
 }
 
 .about__highlight-icon {
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-accent);
 }
 
 .about__card-label {
@@ -337,7 +340,16 @@
 }
 
 .skill-category__icon {
-  font-size: 1.1rem;
+  width: var(--space-5);
+  height: var(--space-5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
+  color: color-mix(in srgb, var(--color-accent) 70%, var(--color-text));
+  flex-shrink: 0;
 }
 
 .skill-category__title {
@@ -398,14 +410,23 @@
   flex: 1;
 }
 
+.interest-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .interest-card__icon {
-  line-height: 1;
+  width: var(--space-5);
+  height: var(--space-5);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--space-5);
-  height: var(--space-5);
-  font-size: var(--step-1);
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
+  color: color-mix(in srgb, var(--color-accent) 70%, var(--color-text));
+  flex-shrink: 0;
 }
 
 .interest-card__title {
