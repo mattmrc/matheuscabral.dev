@@ -18,7 +18,7 @@ const classes = ['card', 'card--interactive', 'reveal', 'card--post', className,
   <div class="tag-list card__tags" data-card-row="tags">
     {data.tags.map((tag: string) => <span class="badge">{tag}</span>)}
   </div>
-  <a class="btn btn--ghost card__action" data-card-row="action" href={`/blog/${slug}`}>
+  <a class="btn btn--ghost card__action stretched-link" data-card-row="action" href={`/blog/${slug}`}>
     Read post
   </a>
 </article>

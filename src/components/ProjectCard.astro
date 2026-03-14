@@ -27,7 +27,7 @@ const classes = ['card', 'card--interactive', 'reveal', 'card--project', classNa
   <div class="tag-list card__stack" data-card-row="stack">
     {data.stack.map((item: string) => <span class="kicker">{item}</span>)}
   </div>
-  <a class="btn btn--ghost card__action" data-card-row="action" href={`/portfolio/${slug}`}>
+  <a class="btn btn--ghost card__action stretched-link" data-card-row="action" href={`/portfolio/${slug}`}>
     View project
   </a>
 </article>
