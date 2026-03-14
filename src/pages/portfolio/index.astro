@@ -48,37 +48,5 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => a[0].localeCompare(b[0]
     </div>
   </Section>
 
-  <script is:inline>
-    (() => {
-      const buttons = document.querySelectorAll('[data-filter]');
-      const cards = document.querySelectorAll('[data-project-card]');
-
-      const setActive = (active) => {
-        buttons.forEach((button) => {
-          button.setAttribute('aria-pressed', button.dataset.filter === active ? 'true' : 'false');
-        });
-      };
-
-      const setVisibility = (card, visible) => {
-        card.toggleAttribute('hidden', !visible);
-        card.setAttribute('aria-hidden', visible ? 'false' : 'true');
-        card.style.display = visible ? '' : 'none';
-      };
-
-      buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const filter = button.dataset.filter || 'all';
-          setActive(filter);
-          cards.forEach((card) => {
-            const tags = card.dataset.tags || '';
-            const match = filter === 'all' || tags.split(',').includes(filter);
-            setVisibility(card, match);
-          });
-          if (window.__equalizeCardGrids) {
-            window.__equalizeCardGrids();
-          }
-        });
-      });
-    })();
-  </script>
+  <script src="../../scripts/portfolio-filter.ts"></script>
 </BaseLayout>
