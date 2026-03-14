@@ -1,12 +1,12 @@
 export const site = {
   name: 'Matheus Cabral',
-  title: 'Matheus Cabral - Data Engineer',
+  title: 'Matheus Cabral - Senior Data Engineer',
   description:
-    'Data engineer building end-to-end ETL pipelines and trusted reporting on Databricks and Power BI.',
+    'Senior data engineer building scalable Databricks Lakehouse pipelines, streaming workflows, and trusted reporting.',
   url: 'https://matheuscabral.dev',
   email: 'hello@matheuscabral.dev',
   location: 'Lisbon, Portugal',
-  availability: 'Currently employed full-time at BNP Paribas',
+  availability: 'Currently employed full-time at Ultra Tendency',
 };
 
 export const navLinks = [
@@ -83,7 +83,7 @@ export const skills = [
   {
     title: 'Platforms',
     icon: 'circle-stack',
-    items: ['Databricks', 'Power BI', 'Tableau'],
+    items: ['Databricks', 'AWS', 'Power BI', 'Tableau'],
   },
   {
     title: 'Tools',
@@ -115,10 +115,18 @@ export const interests = [
 
 export const timeline = [
   {
+    role: 'Senior Data Engineer',
+    company: 'Ultra Tendency',
+    location: site.location,
+    period: '03/2026 - Present',
+    summary:
+      'Designing scalable Databricks Lakehouse pipelines with Spark and Delta Lake, powering analytics and ML use cases with a focus on data governance.',
+  },
+  {
     role: 'Data Engineer',
     company: 'BNP Paribas',
     location: site.location,
-    period: '11/2023 - Present',
+    period: '11/2023 - 03/2026',
     summary:
       'Designed and maintained ETL pipelines in Python, PySpark, and SQL, plus Power BI dashboards for finance and management.',
   },
@@ -128,7 +136,7 @@ export const timeline = [
     location: site.location,
     period: '08/2021 - 10/2023',
     summary:
-      'Built Databricks ETL workflows and cross-team dashboards for revenue, pipeline, and product usage KPIs.',
+      'Built Databricks-on-AWS ETL workflows with S3 storage, plus cross-team dashboards for revenue, pipeline, and product usage KPIs.',
   },
   {
     role: 'Data Analyst',
@@ -143,7 +151,7 @@ export const timeline = [
 export const featuredHighlights = [
   {
     label: 'Current focus',
-    title: 'ETL pipelines and KPI reporting in finance',
+    title: 'Databricks Lakehouse pipelines & data governance',
   },
   {
     label: 'Favorite stack',
@@ -151,6 +159,6 @@ export const featuredHighlights = [
   },
   {
     label: 'Current role',
-    title: 'Data Engineer at BNP Paribas',
+    title: 'Senior Data Engineer at Ultra Tendency',
   },
 ];

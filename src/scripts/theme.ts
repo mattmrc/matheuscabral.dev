@@ -1,6 +1,5 @@
 document.addEventListener('astro:page-load', () => {
   const themeToggle = document.querySelector('[data-theme-toggle]');
-  const themeIcon = document.querySelector('[data-theme-icon]');
   const storageKey = 'theme';
 
   const setTheme = (value: string) => {
@@ -10,9 +9,6 @@ document.addEventListener('astro:page-load', () => {
       localStorage.setItem(storageKey, value);
     } catch (_) {
       /* storage unavailable */
-    }
-    if (themeIcon) {
-      themeIcon.textContent = value === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
     }
     if (themeToggle) {
       themeToggle.setAttribute(
@@ -24,9 +20,6 @@ document.addEventListener('astro:page-load', () => {
 
   if (themeToggle) {
     const currentTheme = document.documentElement.dataset.theme || 'dark';
-    if (themeIcon) {
-      themeIcon.textContent = currentTheme === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
-    }
     themeToggle.setAttribute(
       'aria-label',
       currentTheme === 'dark' ? 'Switch theme to light mode' : 'Switch theme to dark mode',
