@@ -190,6 +190,7 @@
 .hero-enter--badge-3 { bottom: 30%; left: -4%; }
 .hero-enter--badge-4 { bottom: 2%;  right: 5%; }
 .hero-enter--badge-5 { top: -6%;   right: 16%; }
+.hero-enter--badge-6 { bottom: -6%; left: 16%; }
 
 @media (max-width: 900px) {
   .hero__badge-row {
@@ -323,17 +324,38 @@
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  padding: 0.45rem 0.75rem;
+  padding: 0.45rem;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  justify-content: center;
   cursor: pointer;
+  color: var(--color-text);
   transition:
     transform 200ms ease,
     box-shadow 200ms ease,
     background-color 200ms ease,
     border-color 200ms ease;
+}
+
+.theme-icon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon--sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-icon--moon {
+  display: none;
+}
+
+[data-theme="light"] .theme-icon--sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-icon--moon {
+  display: block;
 }
 
 /* ── Chips ── */

@@ -145,6 +145,10 @@
   animation: hero-badge-in 500ms ease both 1200ms, float-y 7.5s ease-in-out infinite 1700ms;
 }
 
+.hero-enter--badge-6 {
+  animation: hero-badge-in 500ms ease both 1300ms, float-x 5s ease-in-out infinite 1800ms;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
