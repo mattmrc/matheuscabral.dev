@@ -34,3 +34,13 @@ test-results/
 
 # netlify
 .netlify/
+
+# claude code
+.claude/
+
+# conductor
+.conductor/
+.context/
+
+# playwright mcp
+.playwright-mcp/
