@@ -78,7 +78,7 @@ const posts = (await getCollection('blog'))
       {
         highlights.map((item) => (
           <Card>
-            <span class="highlight-icon" aria-hidden="true">
+            <span class="icon-box icon-box--lg highlight-icon" aria-hidden="true">
               <Icon name={item.icon} size={18} />
             </span>
             <h3>{item.title}</h3>

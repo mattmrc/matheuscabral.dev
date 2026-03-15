@@ -137,18 +137,27 @@
   width: 100%;
 }
 
-/* ── Highlight icon ── */
+/* ── Icon box (shared utility) ── */
 
-.highlight-icon {
-  width: var(--space-6);
-  height: var(--space-6);
+.icon-box {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: var(--space-5);
+  height: var(--space-5);
   border-radius: var(--radius-sm);
   border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
   background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
   color: color-mix(in srgb, var(--color-accent) 70%, var(--color-text));
+  flex-shrink: 0;
+}
+
+.icon-box--lg {
+  width: var(--space-6);
+  height: var(--space-6);
+}
+
+.highlight-icon {
   margin-bottom: var(--space-3);
 }
 
@@ -262,7 +271,7 @@
 .btn--ghost {
   border-color: transparent;
   color: var(--color-accent);
-  background: rgba(45, 212, 191, 0.08);
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
 }
 
 /* ── Kicker ── */
@@ -875,7 +884,7 @@
   }
 
   .btn--ghost:hover {
-    background: rgba(45, 212, 191, 0.18);
+    background: color-mix(in srgb, var(--color-accent) 18%, transparent);
   }
 
   .theme-toggle:hover {
