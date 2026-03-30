@@ -90,7 +90,7 @@ import { site, values, skills, timeline, socials } from '../data/site';
           {
             values.map((value) => (
               <li class="about__value-tile">
-                <span class="about__value-icon" aria-hidden="true">
+                <span class="icon-box about__value-icon" aria-hidden="true">
                   <Icon name={value.icon} size={14} />
                 </span>
                 <h3 class="about__value-title">{value.title}</h3>
@@ -113,7 +113,7 @@ import { site, values, skills, timeline, socials } from '../data/site';
         skills.map((skill) => (
           <Card>
             <div class="skill-card__header">
-              <span class="skill-card__icon" aria-hidden="true">
+              <span class="icon-box" aria-hidden="true">
                 <Icon name={skill.icon} size={16} />
               </span>
               <h3>{skill.title}</h3>

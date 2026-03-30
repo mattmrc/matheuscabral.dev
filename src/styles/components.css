@@ -45,6 +45,16 @@
   z-index: 1;
 }
 
+.stretched-link:focus-visible {
+  outline: none;
+}
+
+.card:has(.stretched-link:focus-visible) {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  border-color: var(--color-accent);
+}
+
 .card--interactive:focus-visible {
   transform: translateY(var(--lift-1));
   box-shadow: var(--elev-2);
@@ -137,18 +147,27 @@
   width: 100%;
 }
 
-/* ── Highlight icon ── */
+/* ── Icon box (shared utility) ── */
 
-.highlight-icon {
-  width: var(--space-6);
-  height: var(--space-6);
+.icon-box {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: var(--space-5);
+  height: var(--space-5);
   border-radius: var(--radius-sm);
   border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
   background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
   color: color-mix(in srgb, var(--color-accent) 70%, var(--color-text));
+  flex-shrink: 0;
+}
+
+.icon-box--lg {
+  width: var(--space-6);
+  height: var(--space-6);
+}
+
+.highlight-icon {
   margin-bottom: var(--space-3);
 }
 
@@ -234,7 +253,9 @@
   padding: 0.65rem 1.4rem;
   border-radius: var(--radius-pill);
   font-weight: 600;
+  font-size: 1rem;
   border: 1px solid transparent;
+  cursor: pointer;
   transition:
     transform 200ms ease,
     box-shadow 200ms ease,
@@ -262,7 +283,7 @@
 .btn--ghost {
   border-color: transparent;
   color: var(--color-accent);
-  background: rgba(45, 212, 191, 0.08);
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
 }
 
 /* ── Kicker ── */
@@ -287,7 +308,6 @@
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
   transform: translateZ(0);
-  will-change: transform;
 }
 
 .nav__inner {
@@ -875,7 +895,7 @@
   }
 
   .btn--ghost:hover {
-    background: rgba(45, 212, 191, 0.18);
+    background: color-mix(in srgb, var(--color-accent) 18%, transparent);
   }
 
   .theme-toggle:hover {

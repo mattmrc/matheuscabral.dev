@@ -44,6 +44,9 @@
   --focus-outline: 2px solid var(--color-focus);
   --focus-offset: 3px;
 
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+
   --container-width: 1200px;
   --grid-gap: 1.5rem;
   --section-pad: clamp(2rem, 4vw, 3.5rem);
@@ -72,7 +75,7 @@
   --color-surface-2: #f0eae2;
   --color-card: #fbf8f4;
   --color-text: #1b1f23;
-  --color-muted: #5f6b6d;
+  --color-muted: #4d5a5c;
   --color-accent: #0f766e;
   --color-accent-strong: #0b5f59;
   --color-highlight: #d87a58;
